@@ -7,9 +7,10 @@
 #include "ClientHandler.h"
 #include "Solver.h"
 #include "CacheManager.h"
+/*
 template <typename P, typename  S>
 class MyClientHandler : public ClientHandler {
   CacheManager<P,S> cm;
   Solver<P,S> solver;
-};
+};*/
 #endif //MILESTONE2__MYCLIENTHANDLER_H_

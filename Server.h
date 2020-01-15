@@ -5,6 +5,8 @@
 #ifndef MILESTONE2__SERVER_H_
 #define MILESTONE2__SERVER_H_
 #include "ClientHandler.h"
+#include <netinet/in.h>
+
 class Server {
   /*
  protected:
@@ -16,6 +18,7 @@ class Server {
     this->client_handler = ch;
     this->port = p;
   }*/
+  //virtual int open(int port, ClientHandler* ch) = 0;
   virtual int open(int port, ClientHandler* ch) = 0;
   virtual void stop() = 0;
 

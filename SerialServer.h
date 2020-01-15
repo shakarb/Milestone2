@@ -10,14 +10,18 @@
 #include <unistd.h>
 #include <cstring>
 #include <netinet/in.h>
-#include <sstream>
 #include <thread>
-//#include <stdlib.h> // atoi
-#include <mutex>
+
 using namespace std;
 
-class SerialServer : Server{
+class SerialServer : public Server{
+private:
+    volatile bool isStop = false;
 
-  virtual int open(int port, ClientHandler* ch);
+public:
+    virtual int open(int port, ClientHandler* ch);
+    int getClients(sockaddr_in address, int socketfd, ClientHandler *ch);
+    void stop();
+
 };
 #endif //MILESTONE2__SERIALSERVER_H_

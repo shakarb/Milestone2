@@ -4,7 +4,9 @@
 
 #ifndef MILESTONE2__CLIENTHANDLER_H_
 #define MILESTONE2__CLIENTHANDLER_H_
+
 class ClientHandler {
-  virtual void handleClient(/*stream, stream*/) = 0;
+public:
+  virtual void handleClient(int client_socket) = 0;
 };
 #endif //MILESTONE2__CLIENTHANDLER_H_
