@@ -27,5 +27,6 @@ int main(int argc, char *argv[]) {
     std::ofstream file("filename");
     std::string my_string = "Hello text in file\n";
     file << my_string;*/
+
     return 0;
 }

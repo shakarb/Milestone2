@@ -82,7 +82,6 @@ class FileCacheManager : public CacheManager<string, string>{
       this->cacheList.push_front(pair<string, string>(cacheValue->first,cacheValue->second));
       return cacheValue->second;
     } else {
-
       std::ifstream inFile(problem);
       if(!inFile){
         //throw "an error";
