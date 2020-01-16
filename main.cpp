@@ -3,7 +3,6 @@
 #include "FileCacheManager.h"
 #include "StringReserver.h"
 
-
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -11,22 +10,14 @@
 using namespace std;
 int main(int argc, char *argv[]) {
     //int port = stoi(argv[1]);
-    FileCacheManager *cache = new FileCacheManager(5);
-    StringReserver *solver = new StringReserver();
-    MyTestClientHandler *clientHandler = new MyTestClientHandler(cache, solver);
-    SerialServer *server = new SerialServer();
-    //server->open(port, clientHandler);
-    //server->open(5600, clientHandler);
+
+    CacheManager<string, string> *cache = new FileCacheManager(5);
+    Solver<string, string> *solver = new StringReserver();
+    ClientHandler *clientHandler = new MyTestClientHandler<string,string>(cache, solver);
+    server_side::Server *server = new SerialServer();
     server->open(5600, clientHandler);
+    //server_side::boot::Main().main(argc ,argv);
 
-
-
-    //string s = "aba";
-    //cout<<s.c_str()<<endl;
-    /*
-    std::ofstream file("filename");
-    std::string my_string = "Hello text in file\n";
-    file << my_string;*/
 
     return 0;
 }

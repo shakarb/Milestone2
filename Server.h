@@ -4,23 +4,36 @@
 
 #ifndef MILESTONE2__SERVER_H_
 #define MILESTONE2__SERVER_H_
-#include "ClientHandler.h"
+#include "FileCacheManager.h"
+#include "SerialServer.h"
+#include "StringReserver.h"
+#include "MyTestClientHandler.h"
 #include <netinet/in.h>
+namespace server_side {
+  class Server {
+   public:
+    //virtual int open(int port, ClientHandler* ch) = 0;
+    virtual int open(int port, ClientHandler *ch) = 0;
+    virtual void stop() = 0;
 
-class Server {
-  /*
- protected:
-  ClientHandler* client_handler;
-  int port;
+  };
+/*
+  namespace boot {
+    class Main {
+     public:
+      int main(int argc, char *argv[]) {
+        //int port = stoi(argv[1]);
 
- public:
-  Server(ClientHandler* ch, int p) {
-    this->client_handler = ch;
-    this->port = p;
+        CacheManager<string, string> *cache = new FileCacheManager(5);
+        Solver<string, string> *solver = new StringReserver();
+        ClientHandler *clientHandler = new MyTestClientHandler<string,string>(cache, solver);
+
+        Server *server = new server_side:: SerialServer();
+        server->open(5600, clientHandler);
+
+        return 0;
+      }
+    };
   }*/
-  //virtual int open(int port, ClientHandler* ch) = 0;
-  virtual int open(int port, ClientHandler* ch) = 0;
-  virtual void stop() = 0;
-
-};
+}
 #endif //MILESTONE2__SERVER_H_

@@ -13,7 +13,7 @@
 #include <thread>
 
 using namespace std;
-
+using namespace server_side;
 class SerialServer : public Server{
 private:
     volatile bool isStop = false;
@@ -21,7 +21,7 @@ private:
 public:
     virtual int open(int port, ClientHandler* ch);
     int getClients(sockaddr_in address, int socketfd, ClientHandler *ch);
-    void stop();
+    virtual void stop();
 
 };
 #endif //MILESTONE2__SERIALSERVER_H_
