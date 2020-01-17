@@ -10,7 +10,7 @@
 
 template <typename P, typename  S>
 class Solver {
- public:
+public:
   virtual S solve(P problem) = 0;
 };
 
