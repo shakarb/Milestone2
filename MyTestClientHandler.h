@@ -8,6 +8,7 @@
 #include "ClientHandler.h"
 #include "FileCacheManager.h"
 #include "StringReserver.h"
+#include "SearchableSolver.h"
 
 #include <unistd.h>
 #include <string.h>
@@ -39,7 +40,7 @@ public:
           } else {
             /*vector<string> k = {"dc", "l"};
             solution = solver->solve(k);*/
-            solution = this->solver->solve(line);
+            solution = solver->solve(line);
             this->cache->insert(line, solution);
           }
           // Prepare solution for sending it to the client

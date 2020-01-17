@@ -4,13 +4,16 @@
 
 #ifndef MILESTONE2__OBJECTADAPTER_H_
 #define MILESTONE2__OBJECTADAPTER_H_
+
 #include "Solver.h"
 #include "Searcher.h"
-template <typename P, typename  S>
-class ObjectAdapter : public Solver<P,S> {
+
+template <typename P, typename  S, typename T, typename SE>
+class SearchableSolver : public Solver<P,S> {
  protected:
-  //Searcher<T>
+  Searcher<T> searcher;
  public:
-  virtual S solve(P problem);
+    SearchableSolver(Searcher<T> searcher);
+    virtual S solve(P problem);
 };
 #endif //MILESTONE2__OBJECTADAPTER_H_

@@ -14,11 +14,13 @@ int SerialServer::getClients(sockaddr_in address, int socketfd, ClientHandler *c
         int client_socket = accept(socketfd, (struct sockaddr *) &address, &addrlen);
         if(client_socket == -1) {
             cout<<"Client hasn't connected for 2 minutes"<<endl;
-            return -4;
+            this->stop();
+            //return -4;
         } else {
             cout<<"Client is connected"<<endl;
+            ch->handleClient(client_socket);
         }
-        ch->handleClient(client_socket);
+
         //close(client_socket);
     }
 
@@ -51,20 +53,20 @@ int SerialServer::open(int port, ClientHandler *ch) {
 
     // define timout for client connecting
     struct timeval timeout;
-    //timeout.tv_sec = 120000;
-    timeout.tv_sec = 20;
+    timeout.tv_sec = 120;
     timeout.tv_usec = 0;
 
     // define timout for socket level
     setsockopt(socketfd, SOL_SOCKET, SO_RCVTIMEO, (const char*)&timeout, sizeof(timeout));
-
     thread *openSever = new thread(&SerialServer::getClients, this, address, socketfd, ch);
-    openSever->join();
+    /*
     // checks if errno flag is on which means no data received within the expected time
     if(errno = EWOULDBLOCK) {
+        cout<<"das"<<endl;
         this->stop();
         close(socketfd);
-    }
+    }*/
+    openSever->join();
 
 }
 
