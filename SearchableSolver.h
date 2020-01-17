@@ -11,15 +11,16 @@
 template <typename P, typename  S, typename T, typename SE>
 class SearchableSolver : public Solver<P,S> {
  protected:
-  Searcher<S,T> searcher;
+  Searcher<S,T> *searcher;
  public:
-    SearchableSolver(Searcher<S,T> searcher) {
+    SearchableSolver(Searcher<S,T> *searcher) {
         this->searcher = searcher;
     }
     S solve(P problem) {
         // create searchable object from the problem
-        Searchable<T> searchable = new SE(problem);
-        this->searcher.search(searchable);
+        Searchable<T> *searchable = new SE(problem);
+        //this->searcher.search(searchable);
+
     }
 };
 #endif //MILESTONE2__OBJECTADAPTER_H_
