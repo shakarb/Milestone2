@@ -2,7 +2,7 @@
 // Created by batel on 12/01/2020.
 //
 #include "SerialServer.h"
-
+//using namespace server_side;
 /*
  * Get new connections and handle them by passing them to a client handler
  */

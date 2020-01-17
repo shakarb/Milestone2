@@ -7,5 +7,5 @@ set(CMAKE_CXX_FLAGS -pthread)
 add_executable(Milestone2 main.cpp Server.h ClientHandler.h SerialServer.h SerialServer.cpp Solver.h
                 CacheManager.h FileCacheManager.h MyTestClientHandler.h
                 StringReserver.cpp StringReserver.h SearchableSolver.h Searcher.h
-                Searchable.cpp Searchable.h MatrixSearchable.cpp MatrixSearchable.h
+        Searchable.h MatrixSearchable.h
                 State.cpp State.h Point.cpp Point.h BFS.cpp BFS.h)

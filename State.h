@@ -8,6 +8,8 @@
 template <typename T>
 class State {
     T state;
+    // double cost;
+    // State<T> came_from;
 public:
     State(T s) {
         this->state = s;

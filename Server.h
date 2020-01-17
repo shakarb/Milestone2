@@ -5,10 +5,11 @@
 #ifndef MILESTONE2__SERVER_H_
 #define MILESTONE2__SERVER_H_
 #include "FileCacheManager.h"
-#include "SerialServer.h"
 #include "StringReserver.h"
 #include "MyTestClientHandler.h"
+#include "SerialServer.h"
 #include <netinet/in.h>
+
 namespace server_side {
   class Server {
    public:
@@ -17,7 +18,7 @@ namespace server_side {
     virtual void stop() = 0;
 
   };
-/*
+
   namespace boot {
     class Main {
      public:
@@ -28,12 +29,12 @@ namespace server_side {
         Solver<string, string> *solver = new StringReserver();
         ClientHandler *clientHandler = new MyTestClientHandler<string,string>(cache, solver);
 
-        Server *server = new server_side:: SerialServer();
-        server->open(5600, clientHandler);
+        //Server *server = new
+        //server->open(5600, clientHandler);
 
         return 0;
       }
     };
-  }*/
+  }
 }
 #endif //MILESTONE2__SERVER_H_
