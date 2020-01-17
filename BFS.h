@@ -6,10 +6,9 @@
 #define MILESTONE2_BFS_H
 #include "Searcher.h"
 
-template <typename T>
-class BFS : public Searcher<T>{
-    virtual void search(Searchable<T> s) {
-
+template <typename S, typename T>
+class BFS : public Searcher<S,T>{
+    virtual S search(Searchable<T> s) {
     }
 };
 

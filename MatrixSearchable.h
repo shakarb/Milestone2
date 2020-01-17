@@ -12,14 +12,15 @@
 
 template <typename T>
 class MatrixSearchable: public Searchable<T> {
-    string line;
+
+    string data;
     vector<string> matrix;
     T init_point;
     T end_point;
 public:
 
-    MatrixSearchable(string line) {
-      this->line = line;
+    MatrixSearchable(string data) {
+      this->data = data;
       this->parser();
     }
 
@@ -27,29 +28,32 @@ public:
      * Get the string of the matrix
      */
     string getStr() {
-        return this->line;
+        return this->data;
     }
 
     /*
      * Get the converted matrix by converting it from string to vector of strings.
      */
     vector<string> getConvertedSearchable() {
+
         string str;
         int j = 0;
-        for(int i = 0; i < line.length(); i++) {
-            while (line[i] != "\n") {
-                str += line[i];
+        for(int i = 0; i < data.length(); i++) {
+            while (data[i] != '\n') {
+                str += data[i];
             }
             this->matrix[j] = str;
             str = "";
             j++;
         }
+
         return this->matrix;
     }
 
     /*
      * Set initPoint and endPoint of the matrix by pasrsing it from the problem
      */
+
     void parser() {
         int x, y, comma_pos;
         // get one line before the last line which represents the start point of the matrix

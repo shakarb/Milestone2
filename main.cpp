@@ -17,12 +17,13 @@ using namespace std;
 int main(int argc, char *argv[]) {
     //int port = stoi(argv[1]);
     CacheManager<string, string> *cache = new FileCacheManager(5);
-    Searcher<Point> *algorithm = new BFS<Point>;
-    //Solver<string, string> *solver = new StringReserver();
-    Solver<string, string> *solver = new SearchableSolver<string,string,Point,MatrixSearchable<Point>>(algorithm);
+    Searcher<string, Point> *algorithm = new BFS<string, Point>;
+    //Solver<string, string> *solver = new SearchableSolver<string,string,Point,MatrixSearchable<Point>>(algorithm);
+    /*
     ClientHandler *clientHandler = new MyTestClientHandler<string,string>(cache, solver);
     server_side::Server *server = new SerialServer();
     server->open(5600, clientHandler);
-    //server_side::boot::Main().main(argc ,argv);
+    */
+     //server_side::boot::Main().main(argc ,argv);
     return 0;
 }

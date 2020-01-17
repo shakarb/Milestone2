@@ -11,9 +11,9 @@
 template <typename P, typename  S, typename T, typename SE>
 class SearchableSolver : public Solver<P,S> {
  protected:
-  Searcher<T> searcher;
+  Searcher<S,T> searcher;
  public:
-    SearchableSolver(Searcher<T> searcher);
+    SearchableSolver(Searcher<S,T> searcher);
     virtual S solve(P problem);
 };
 #endif //MILESTONE2__OBJECTADAPTER_H_
