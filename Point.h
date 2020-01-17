@@ -10,6 +10,7 @@ class Point {
 int x;
 int y;
 public:
+    Point();
     Point(int x, int y);
     bool operator==(Point p) {
         if (this->x == p.x && this->y == p.y) {

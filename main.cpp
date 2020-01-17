@@ -18,6 +18,8 @@ int main(int argc, char *argv[]) {
     //int port = stoi(argv[1]);
     CacheManager<string, string> *cache = new FileCacheManager(5);
     Searcher<string, Point> *algorithm = new BFS<string, Point>;
+    Searchable<Point> *matrix = new MatrixSearchable<Point>("ds");
+
     //Solver<string, string> *solver = new SearchableSolver<string,string,Point,MatrixSearchable<Point>>(algorithm);
     /*
     ClientHandler *clientHandler = new MyTestClientHandler<string,string>(cache, solver);

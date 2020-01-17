@@ -8,7 +8,7 @@
 
 template <typename S, typename T>
 class BFS : public Searcher<S,T>{
-    virtual S search(Searchable<T> s) {
+    virtual S search(/*Searchable<T> s*/) {
     }
 };
 

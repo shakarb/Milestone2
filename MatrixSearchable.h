@@ -21,7 +21,7 @@ public:
 
     MatrixSearchable(string data) {
       this->data = data;
-      this->parser();
+      //this->parser();
     }
 
     /*

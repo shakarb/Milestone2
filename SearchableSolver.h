@@ -13,7 +13,13 @@ class SearchableSolver : public Solver<P,S> {
  protected:
   Searcher<S,T> searcher;
  public:
-    SearchableSolver(Searcher<S,T> searcher);
-    virtual S solve(P problem);
+    SearchableSolver(Searcher<S,T> searcher) {
+        this->searcher = searcher;
+    }
+    S solve(P problem) {
+        // create searchable object from the problem
+        Searchable<T> searchable = new SE(problem);
+        this->searcher.search(searchable);
+    }
 };
 #endif //MILESTONE2__OBJECTADAPTER_H_

@@ -10,7 +10,7 @@
 template <typename S,typename T>
 class Searcher {
 public:
-    virtual S search(Searchable<T> s) = 0;
+    virtual S search(/*Searchable<T> s*/) = 0;
 };
 
 #endif //MILESTONE2__SEARCHER_H_
