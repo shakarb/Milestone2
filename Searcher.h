@@ -14,20 +14,20 @@
 
 template <typename S,typename T>
 class Searcher : public ISearcher<S,T>{
-private:
-    vector<State<T>> states;
-    int evaluated_nodes;
-public:
-    Searcher() {
-        this->count_nodes = 0;
-    }
-protected:
-    State<T> popState() {
-        this->evaluated_nodes++;
-        State<T> s = this->states.back();
-        this->states.pop_back();
-    }
+  private:
+  //open list - priority queue.
 
+  protected:
+  State<T>* popState() {
+    this->evaluated_nodes++;
+    //pop from priority queue.
+  }
+
+  public:
+  int getOpenListSize() {
+    // return the size of the prioruty queue
+  }
+  virtual S search(Searchable<T> *s) = 0;
 };
 
 #endif //MILESTONE2__SEARCHER_H_

@@ -11,9 +11,9 @@
 template <typename P, typename  S, typename T, typename SE>
 class SearchableSolver : public Solver<P,S> {
  protected:
-  Searcher<S,T> *searcher;
+  ISearcher<S,T> *searcher;
  public:
-    SearchableSolver(Searcher<S,T> *searcher) {
+    SearchableSolver(ISearcher<S,T> *searcher) {
         this->searcher = searcher;
     }
     // problem should be a string, and every constructor of searchable should accept a string.
