@@ -13,7 +13,9 @@ private:
     vector<State<T>> states;
     int evaluated_nodes;
 public:
-    virtual int getNumberOfNodesEvaluated() = 0;
+    int getNumberOfNodesEvaluated() {
+        return this->evaluated_nodes;
+    }
     virtual S search(Searchable<T> *s) = 0;
 };
 

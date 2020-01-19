@@ -10,6 +10,7 @@
 #include "State.h"
 
 #include <vector>
+#include <map>
 
 template <typename S,typename T>
 class Searcher : public ISearcher<S,T>{
@@ -19,9 +20,6 @@ private:
 public:
     Searcher() {
         this->count_nodes = 0;
-    }
-    int getNumberOfNodesEvaluated() {
-        return this->evaluated_nodes;
     }
 protected:
     State<T> popState() {
