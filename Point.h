@@ -10,13 +10,12 @@ class Point {
 int x;
 int y;
 public:
-    Point();
+    //Point();
     Point(int x, int y);
-    bool operator==(Point p) {
-        if (this->x == p.x && this->y == p.y) {
-            return true;
-        }
-    }
+    int getX();
+    int getY();
+    bool operator==(Point p);
+    //Point& operator=(const Point& other);
 };
 
 

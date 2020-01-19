@@ -7,18 +7,40 @@
 
 template <typename T>
 class State {
-    T state;
-    // double cost;
-    // State<T> came_from;
+private:
+   T state;
+   double cost;
+   State<T>* came_from;
 public:
     State(T s) {
-        this->state = s;
+      this->state = s;
     }
-    bool equals(State<T> state_obj) {
-        if(this->state == state_obj.state) {
-            return true;
-        }
-        return false;
+    // work only in the cases that T is an address of something
+    bool equals(State<T>* state_obj) {
+      if(*this->state == *state_obj->state) {
+          return true;
+      }
+      return false;
+    }
+
+    void setCost(double c) {
+      this->cost = c;
+    }
+
+    double getCost() {
+      return this->cost;
+    }
+
+    void setCameFrom(State<T> cf) {
+      this->came_from = cf;
+    }
+
+    State<T> getCameFrom() {
+      return this->came_from;
+    }
+
+    T getState() {
+      return this->state;
     }
 };
 

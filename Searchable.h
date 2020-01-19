@@ -5,16 +5,17 @@
 #ifndef MILESTONE2_SEARCHABLE_H
 #define MILESTONE2_SEARCHABLE_H
 
-#include <list>
+#include <vector>
+#include "State.h"
 using namespace std;
 
 template <typename T>
 class Searchable {
 public:
     //T getInitialState() {};
-    virtual T getInitialState() = 0;
-    //virtual bool isGoalState(T state) = 0;
-    //virtual list<T> getAllPossisbleStates(T state) = 0;
+    virtual State<T>* getInitialState() = 0;
+    virtual bool isGoalState(State<T>* state) = 0;
+    virtual vector<State<T>*> getAllPossisbleStates(State<T>* state) = 0;
 };
 
 

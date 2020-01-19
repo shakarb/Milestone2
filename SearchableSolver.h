@@ -16,6 +16,7 @@ class SearchableSolver : public Solver<P,S> {
     SearchableSolver(Searcher<S,T> *searcher) {
         this->searcher = searcher;
     }
+    // problem should be a string, and every constructor of searchable should accept a string.
     S solve(P problem) {
         // create searchable object from the problem
         Searchable<T> *searchable = new SE(problem);

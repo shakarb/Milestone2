@@ -9,87 +9,56 @@
 #include <string>
 #include <vector>
 #include "Point.h"
+#include "State.h"
 
-template <typename T>
-class MatrixSearchable: public Searchable<T> {
 
-    string data;
-    vector<string> matrix;
-    T init_point;
-    T end_point;
-public:
+class MatrixSearchable: public Searchable<Point*> {
+  string data;
+  // every number in the matrix will be a state of point
+  vector<vector<State<Point*>*>> matrix;
+  Point* init_point;
+  Point* end_point;
+  int num_rows;
+  int num_cols;
 
-    MatrixSearchable(string data) {
-      this->data = data;
-      //this->parser();
-    }
+  /*
+   * converting the matrix from string to vector of vectors of states.
+   */
+  void convertSearchable();
 
-    /*
-     * Get the string of the matrix
-     */
-    string getStr() {
-        return this->data;
-    }
+  /*
+   * Set initPoint and endPoint of the matrix by pasrsing it from the problem
+   * and change 'data' to be only the data of the matrix (without the start end points)
+   */
+  void parser();
 
-    /*
-     * Get the converted matrix by converting it from string to vector of strings.
-     */
-    vector<string> getConvertedSearchable() {
+ public:
+  MatrixSearchable(string data);
 
-        string str;
-        int j = 0;
-        for(int i = 0; i < data.length(); i++) {
-            while (data[i] != '\n') {
-                str += data[i];
-            }
-            this->matrix[j] = str;
-            str = "";
-            j++;
-        }
+  /*
+   * Get the string of the matrix
+   */
+  string getStr();
 
-        return this->matrix;
-    }
+  /*
+   * return the matrix.
+   */
+  vector<vector<State<Point*>*>> getMatrix();
 
-    /*
-     * Set initPoint and endPoint of the matrix by pasrsing it from the problem
-     */
+  /*
+   * Get the initial state of the matrix
+   */
+  State<Point*>* getInitialState();
 
-    void parser() {
-        int x, y, comma_pos;
-        // get one line before the last line which represents the start point of the matrix
-        string init_matrix = matrix[sizeof(matrix) - 2];
-        comma_pos = init_matrix.find(',');
-        x = stoi(init_matrix.substr(0, comma_pos));
-        y = stoi(init_matrix.substr(comma_pos));
-        this->initPoint = new T(x, y);
-        // get the last line which represents the end point of the matrix
-        string end_matrix = matrix[sizeof(matrix) - 1];
-        comma_pos = init_matrix.find(',');
-        x = stoi(init_matrix.substr(0, comma_pos));
-        y = stoi(init_matrix.substr(comma_pos));
-        this->endPoint = new T(x, y);
-    }
+  /*
+   * Check whether the given state is the goal state
+   */
+  bool isGoalState(State<Point*>* state);
 
-    /*
-     * Get the initial point of the matrix
-     */
-    T getInitialState() {
-        return this->init_point;
-    }
-
-    /*
-     * Check whether the given state is the goal state
-     */
-    bool isGoalState(T state) {
-        return this->end_point == state;
-    }
-
-    /*
-     * Get all possibile movements from the given state
-     */
-    list<T> getAllPossisbleStates(T state) {
-
-    }
+  /*
+   * Get all possibile movements from the given state
+   */
+  vector<State<Point*>*> getAllPossisbleStates(State<Point*>* state);
 
 };
 
