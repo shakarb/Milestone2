@@ -13,7 +13,7 @@
 #include <map>
 
 template <typename S,typename T>
-class Searcher : public ISearcher<S,T>{
+class Searcher : public ISearcher<T>{
   private:
   //open list - priority queue.
 
@@ -27,7 +27,7 @@ class Searcher : public ISearcher<S,T>{
   int getOpenListSize() {
     // return the size of the prioruty queue
   }
-  virtual S search(Searchable<T> *s) = 0;
+  virtual vector<State<T>*> search(Searchable<T> *s) = 0;
 };
 
 #endif //MILESTONE2__SEARCHER_H_

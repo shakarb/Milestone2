@@ -60,6 +60,11 @@ class MatrixSearchable: public Searchable<Point*> {
    */
   vector<State<Point*>*> getAllPossisbleStates(State<Point*>* state);
 
+  /*
+   * return a string witch instructs how to go from the initial state to the goal state.
+   */
+  string getDirection(vector<State<Point*>*> backTrace);
+
 };
 
 

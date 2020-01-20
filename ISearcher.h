@@ -7,7 +7,7 @@
 
 #include "Searchable.h"
 
-template <typename S,typename T>
+template <typename T>
 class ISearcher {
 protected:
     int evaluated_nodes; // the modify is or in searchable either in the specific algorithms.
@@ -18,9 +18,16 @@ public:
     int getNumberOfNodesEvaluated() {
         return this->evaluated_nodes;
     }
-    virtual S search(Searchable<T> *s) = 0;
-    string backTrace(State<T>* current, Searchable<T>* searchable) {
+    virtual vector<State<T>*>search(Searchable<T> *s) = 0;
 
+    vector<State<T>*> backTrace(State<T>* current, Searchable<T>* searchable) {
+      vector<State<T>*> trace;
+      while(current->getCameFrom() == searchable->getInitialState()){
+        trace.push_back(current);
+        current = current->getCameFrom();
+      }
+      trace.push_back(searchable->getInitialState());
+      return trace;
     }
 };
 

@@ -11,16 +11,17 @@
 template <typename P, typename  S, typename T, typename SE>
 class SearchableSolver : public Solver<P,S> {
  protected:
-  ISearcher<S,T> *searcher;
+  ISearcher<T> *searcher;
  public:
-    SearchableSolver(ISearcher<S,T> *searcher) {
+    SearchableSolver(ISearcher<T> *searcher) {
         this->searcher = searcher;
     }
     // problem should be a string, and every constructor of searchable should accept a string.
     S solve(P problem) {
         // create searchable object from the problem
         Searchable<T> *searchable = new SE(problem);
-        //this->searcher.search(searchable);
+        vector<State<T>*> trace = this->searcher.search(searchable);
+        return searchable->getDirection(trace);
 
     }
 };
