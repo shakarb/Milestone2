@@ -10,6 +10,7 @@
 #include <vector>
 #include "Point.h"
 #include "State.h"
+#include <iostream>
 
 
 class MatrixSearchable: public Searchable<Point*> {

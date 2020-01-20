@@ -167,6 +167,7 @@ vector<State<Point*>*> MatrixSearchable::getAllPossisbleStates(State<Point*>* st
 }
 
 string MatrixSearchable::getDirection(vector<State<Point*>*> trace) {
+  std::cout<<"kk"<<endl;
   string solution = "";
   for(int i = trace.size() - 1; i >= 0; i--) {
     solution.append(",");

@@ -17,14 +17,14 @@
 #include <vector>
 using namespace std;
 int main(int argc, char *argv[]) {
-  /*
-  Searchable<Point*> *matrix = new MatrixSearchable("8,7,9\n2,3,1\n4,5,6\n0,0\n2,1\n");
-  State<Point*>* test = new State<Point*>(new Point(0,1));
-  State<Point*>* test2 = new State<Point*>(new Point(0,1));
-  bool c = test->equals(test2);
-  bool b = matrix->isGoalState(test);
-  vector<State<Point*>*> v =matrix->getAllPossisbleStates(test);*/
 
+  Searchable<Point*> *matrix = new MatrixSearchable("8,7,9\n2,3,1\n4,5,6\n0,0\n2,1\n");
+  ISearcher<Point*>* s = new DFS<Point*>();
+  vector<State<Point*>*> v =s->search(matrix);
+  string a = matrix->getDirection(v);
+
+/*
+>>>>>>> repairs
   //int port = stoi(argv[1]);
   CacheManager<string, string> *cache = new FileCacheManager(5);
   ISearcher<Point*> *algorithm = new DFS<Point*>;
@@ -34,6 +34,6 @@ int main(int argc, char *argv[]) {
   server->open(5600, clientHandler);
 
   //server_side::boot::Main().main(argc ,argv);
-
+*/
   return 0;
 }

@@ -23,11 +23,11 @@ public:
 
     vector<State<T>*> backTrace(State<T>* current, Searchable<T>* searchable) {
       vector<State<T>*> trace;
-      while(current->getCameFrom() == searchable->getInitialState()){
+      while(current->getCameFrom()->getState()!= searchable->getInitialState()->getState()){
         trace.push_back(current);
         current = current->getCameFrom();
       }
-      trace.push_back(searchable->getInitialState());
+      //trace.push_back(searchable->getInitialState());
       return trace;
     }
 };
