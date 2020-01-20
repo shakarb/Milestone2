@@ -168,7 +168,7 @@ vector<State<Point*>*> MatrixSearchable::getAllPossisbleStates(State<Point*>* st
 
 string MatrixSearchable::getDirection(vector<State<Point*>*> *trace) {
   string solution = "";
-  for(int i = trace->size() - 1; i >= 0; i--) {
+  for(int i = trace->size() - 1; i > 0; i--) {
     solution.append(",");
     State<Point*>* father = (*trace)[i];
     State<Point*>* son = (*trace)[i - 1];

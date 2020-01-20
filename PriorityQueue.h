@@ -13,7 +13,7 @@ public:
     template <typename T>
     struct compareCost {
         bool operator()(State<T> *s1,State<T> *s2) {
-            return s2->getBestCost() < s1->getBestCost();
+            return s2->getPathCost() < s1->getPathCost();
         }
     };
 

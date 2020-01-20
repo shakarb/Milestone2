@@ -10,7 +10,7 @@ class State {
 private:
    T state;
    int cost;
-   int best_cost;
+   int path_cost;
    State<T>* came_from;
 public:
     State(T s) {
@@ -45,12 +45,12 @@ public:
       return this->state;
     }
 
-    void setBestCost(int bc) {
-        this->best_cost = bc;
+    void setPathCost(int bc) {
+        this->path_cost = bc;
     }
 
-    int getBestCost() {
-        return this->best_cost;
+    int getPathCost() {
+        return this->path_cost;
     }
 };
 

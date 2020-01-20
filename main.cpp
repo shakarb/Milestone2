@@ -21,7 +21,7 @@ int main(int argc, char *argv[]) {
   Searchable<Point*> *matrix = new MatrixSearchable("8,7,9\n2,3,1\n4,5,6\n0,0\n2,1\n");
   ISearcher<Point*>* s = new DFS<Point*>();
   vector<State<Point*>*> v =s->search(matrix);
-  string a = matrix->getDirection(v);
+  string a = matrix->getDirection(&v);
 
 /*
 >>>>>>> repairs
