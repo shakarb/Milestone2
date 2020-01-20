@@ -19,7 +19,7 @@ class DFS: public ISearcher<T> {
     int has_neighbors = 0;
     // initialize for the beginning of the algorithm running.
     stack.push(init_state);
-    visited.insert(init_state);
+    visited.insert({init_state, true});
 
     while(!stack.empty()) {
       State<T>* top_state = stack.top();
@@ -37,7 +37,7 @@ class DFS: public ISearcher<T> {
           has_neighbors = 1;
           neighbor->setCameFrom(top_state);
           stack.push(neighbor);
-          visited.insert(neighbor, true);
+          visited.insert({neighbor, true});
           break;
         }
       }

@@ -5,12 +5,12 @@
 #ifndef MILESTONE2_BFS_H
 #define MILESTONE2_BFS_H
 #include "Searcher.h"
-
-template <typename S, typename T>
-class BFS : public Searcher<S,T>{
-    virtual S search(Searchable<T> *searchable) {
-        vector<State<T>> queue;
-        map<State<T>, bool> visited;
+/*
+template <typename T>
+class BFS : public ISearcher<T>{
+    virtual vector<State<T>*> search(Searchable<T> *searchable) {
+        vector<State<T>*> queue;
+        map<State<T>*, bool> visited;
         State<T> *prev = searchable->getInitialState();
         queue.push_back(prev);
         visited.insert(prev, true);
@@ -21,7 +21,7 @@ class BFS : public Searcher<S,T>{
             this->evaluatedNodes++;
             if (searchable->isGoalState(state)) {
                 //back trace
-                string solution = "";
+                vector<State<T>*> solution = this->backTrace(state, searchable);
                 return solution;
             }
             vector<State<Point *>> successors = searchable->getAllPossisbleStates(state);
@@ -37,5 +37,5 @@ class BFS : public Searcher<S,T>{
         return "Couldn't find a solution";
     }
 };
-
+*/
 #endif //MILESTONE2_BFS_H

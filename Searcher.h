@@ -12,7 +12,7 @@
 #include <vector>
 #include <map>
 
-template <typename S,typename T>
+template <typename T>
 class Searcher : public ISearcher<T>{
   private:
   //open list - priority queue.

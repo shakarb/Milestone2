@@ -20,7 +20,7 @@ class SearchableSolver : public Solver<P,S> {
     S solve(P problem) {
         // create searchable object from the problem
         Searchable<T> *searchable = new SE(problem);
-        vector<State<T>*> trace = this->searcher.search(searchable);
+        vector<State<T>*> trace = this->searcher->search(searchable);
         return searchable->getDirection(trace);
 
     }

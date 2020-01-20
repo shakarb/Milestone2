@@ -7,7 +7,7 @@
 #include "MatrixSearchable.h"
 #include "State.h"
 #include "Point.h"
-#include "BFS.h"
+#include "DFS.h"
 
 #include <iostream>
 #include <fstream>
@@ -26,7 +26,7 @@ int main(int argc, char *argv[]) {
 
   //int port = stoi(argv[1]);
   CacheManager<string, string> *cache = new FileCacheManager(5);
-  Searcher<string, Point*> *algorithm = new BFS<string, Point*>;
+  ISearcher<Point*> *algorithm = new DFS<Point*>;
   Solver<string, string> *solver = new SearchableSolver<string,string,Point*,MatrixSearchable>(algorithm);
   ClientHandler *clientHandler = new MyTestClientHandler<string,string>(cache, solver);
   server_side::Server *server = new SerialServer();

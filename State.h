@@ -31,11 +31,11 @@ public:
       return this->cost;
     }
 
-    void setCameFrom(State<T> cf) {
+    void setCameFrom(State<T>* cf) {
       this->came_from = cf;
     }
 
-    State<T> getCameFrom() {
+    State<T>* getCameFrom() {
       return this->came_from;
     }
 
