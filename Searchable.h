@@ -18,7 +18,7 @@ public:
     virtual State<T>* getInitialState() = 0;
     virtual bool isGoalState(State<T>* state) = 0;
     virtual vector<State<T>*> getAllPossisbleStates(State<T>* state) = 0;
-    virtual string getDirection(vector<State<T>*> backTrace) = 0;
+    virtual string getDirection(vector<State<T>*> trace) = 0;
 };
 
 

@@ -17,6 +17,7 @@ public:
     }
     // work only in the cases that T is an address of something
     bool equals(State<T>* state_obj) {
+
       if(*this->state == *state_obj->state) {
           return true;
       }
