@@ -2,6 +2,7 @@
 // Created by batel on 18/01/2020.
 //
 #include "MatrixSearchable.h"
+
 MatrixSearchable::MatrixSearchable(string data) {
   this->data = data;
   this->parser();
@@ -10,19 +11,46 @@ MatrixSearchable::MatrixSearchable(string data) {
 
 void MatrixSearchable::convertSearchable() {
   vector<State<Point*>*> v;
+  //int minus_flag = 0;
+  string value = "";
   int num_col = 0;
   int num_row = 0;
   for(int i= 0; i < data.length(); i++) {
     if (data[i] != '\n' && data[i] != ',') {
+      value += data[i];
+    }
+    if(data[i] == ',') {
+      // create a state of point:
+      // remember : the point here is const.
+      State<Point*>* state = new State<Point*>(new Point(num_row, num_col));
+      state->setCost(stod(value));
+      v.push_back(state);
+      num_col++;
+      value = "";
+
+      /*
+      if(data[i] == '-'){
+        minus_flag = 1;
+        continue;
+      }
       // create a state of point:
       // remember : the point here is const.
       State<Point*>* state = new State<Point*>(new Point(num_row, num_col));
       string s(1, data[i]);
+      if(minus_flag){
+        s = "-" + s;
+        minus_flag = 0;
+      }
       state->setCost(stod(s));
       v.push_back(state);
-      num_col++;
+      num_col++;*/
     }
     if (data[i] == '\n'){
+      // for the last:
+      State<Point*>* state = new State<Point*>(new Point(num_row, num_col));
+      state->setCost(stod(value));
+      v.push_back(state);
+      value = "";
       num_row ++;
       num_col = 0;
       this->matrix.push_back(v);

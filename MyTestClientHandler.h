@@ -66,6 +66,8 @@ public:
             }
         }
         cout<<data<<endl;
+        // remove the spaces from the expression_string string.
+        data.erase(remove(data.begin(), data.end(), ' '), data.end());
         if (this->cache->hasSolution(data)) {
             solution = this->cache->get(data);
         } else {
