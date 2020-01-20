@@ -6,6 +6,7 @@
 #define MILESTONE2_ISEARCHER_H
 
 #include "Searchable.h"
+#include <string>
 
 template <typename T>
 class ISearcher {

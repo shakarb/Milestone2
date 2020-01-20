@@ -8,11 +8,13 @@
 #include "State.h"
 #include "Point.h"
 #include "DFS.h"
+#include "BFS.h"
+#include "PriorityQueue.h"
 
 #include <iostream>
 #include <fstream>
 #include <string>
-
+#include <vector>
 using namespace std;
 int main(int argc, char *argv[]) {
   /*
@@ -23,7 +25,6 @@ int main(int argc, char *argv[]) {
   bool b = matrix->isGoalState(test);
   vector<State<Point*>*> v =matrix->getAllPossisbleStates(test);*/
 
-
   //int port = stoi(argv[1]);
   CacheManager<string, string> *cache = new FileCacheManager(5);
   ISearcher<Point*> *algorithm = new DFS<Point*>;
@@ -31,6 +32,7 @@ int main(int argc, char *argv[]) {
   ClientHandler *clientHandler = new MyTestClientHandler<string,string>(cache, solver);
   server_side::Server *server = new SerialServer();
   server->open(5600, clientHandler);
+
   //server_side::boot::Main().main(argc ,argv);
 
   return 0;

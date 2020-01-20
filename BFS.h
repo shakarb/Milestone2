@@ -5,15 +5,16 @@
 #ifndef MILESTONE2_BFS_H
 #define MILESTONE2_BFS_H
 #include "Searcher.h"
-/*
+
 template <typename T>
 class BFS : public ISearcher<T>{
     virtual vector<State<T>*> search(Searchable<T> *searchable) {
-        vector<State<T>*> queue;
-        map<State<T>*, bool> visited;
-        State<T> *prev = searchable->getInitialState();
-        queue.push_back(prev);
-        visited.insert(prev, true);
+        // ****** need to sum cost ****
+        vector<State<T>> queue;
+        map<State<T>, bool> visited;
+        State<T> *init = searchable->getInitialState();
+        queue.push_back(init);
+        visited.insert({init, true});
 
         while (!queue.empty()) {
             State<T> *state = queue.front();
@@ -29,13 +30,12 @@ class BFS : public ISearcher<T>{
                 s.setCameFrom(state);
                 if (s.getCost() != -1 && visited.find(s) == visited.end()) {
                     queue.push_back(s);
-                    visited.insert(s, true);
+                    visited.insert({s, true});
                 }
             }
-
         }
         return "Couldn't find a solution";
     }
 };
-*/
+
 #endif //MILESTONE2_BFS_H
