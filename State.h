@@ -9,7 +9,8 @@ template <typename T>
 class State {
 private:
    T state;
-   double cost;
+   int cost;
+   int best_cost;
    State<T>* came_from;
 public:
     State(T s) {
@@ -24,11 +25,11 @@ public:
       return false;
     }
 
-    void setCost(double c) {
+    void setCost(int c) {
       this->cost = c;
     }
 
-    double getCost() {
+    int getCost() {
       return this->cost;
     }
 
@@ -42,6 +43,14 @@ public:
 
     T getState() {
       return this->state;
+    }
+
+    void setBestCost(int bc) {
+        this->best_cost = bc;
+    }
+
+    int getBestCost() {
+        return this->best_cost;
     }
 };
 
