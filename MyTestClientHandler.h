@@ -65,6 +65,7 @@ public:
                 line = "";
             }
         }
+        cout<<data<<endl;
         if (this->cache->hasSolution(data)) {
             solution = this->cache->get(data);
         } else {
@@ -72,7 +73,7 @@ public:
             this->cache->insert(data, solution);
         }
         // Prepare solution for sending it to the client
-        solution.append("\r\n");
+        //solution.append("\r\n");
         char solution_msg[solution.length() + 1];
         strcpy(solution_msg, solution.c_str());
 

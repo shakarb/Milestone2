@@ -166,13 +166,12 @@ vector<State<Point*>*> MatrixSearchable::getAllPossisbleStates(State<Point*>* st
   return states;
 }
 
-string MatrixSearchable::getDirection(vector<State<Point*>*> trace) {
-  std::cout<<"kk"<<endl;
+string MatrixSearchable::getDirection(vector<State<Point*>*> *trace) {
   string solution = "";
-  for(int i = trace.size() - 1; i >= 0; i--) {
+  for(int i = trace->size() - 1; i >= 0; i--) {
     solution.append(",");
-    State<Point*>* father = trace[i];
-    State<Point*>* son = trace [i - 1];
+    State<Point*>* father = (*trace)[i];
+    State<Point*>* son = (*trace)[i - 1];
     int son_x = son->getState()->getX();
     int son_y = son->getState()->getY();
     int father_x = father->getState()->getX();
