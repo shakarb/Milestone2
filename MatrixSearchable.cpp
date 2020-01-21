@@ -3,7 +3,11 @@
 //
 #include "MatrixSearchable.h"
 
+#include "StringReserver.h"
+#include <string>
+
 MatrixSearchable::MatrixSearchable(string data) {
+  data.erase(remove(data.begin(), data.end(), ' '), data.end());
   this->data = data;
   this->parser();
   this->convertSearchable();
@@ -11,7 +15,6 @@ MatrixSearchable::MatrixSearchable(string data) {
 
 void MatrixSearchable::convertSearchable() {
   vector<State<Point*>*> v;
-  //int minus_flag = 0;
   string value = "";
   int num_col = 0;
   int num_row = 0;
@@ -28,22 +31,6 @@ void MatrixSearchable::convertSearchable() {
       num_col++;
       value = "";
 
-      /*
-      if(data[i] == '-'){
-        minus_flag = 1;
-        continue;
-      }
-      // create a state of point:
-      // remember : the point here is const.
-      State<Point*>* state = new State<Point*>(new Point(num_row, num_col));
-      string s(1, data[i]);
-      if(minus_flag){
-        s = "-" + s;
-        minus_flag = 0;
-      }
-      state->setCost(stod(s));
-      v.push_back(state);
-      num_col++;*/
     }
     if (data[i] == '\n'){
       // for the last:
@@ -113,7 +100,7 @@ string MatrixSearchable::getStr() {
 }
 
 State<Point*>* MatrixSearchable::getInitialState() {
-  State<Point*>* init_state = new State<Point*>(init_point);
+  State<Point*>* init_state = this->matrix[init_point->getX()][init_point->getY()];
   return init_state;
 }
 

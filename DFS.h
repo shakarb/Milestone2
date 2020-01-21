@@ -33,7 +33,7 @@ class DFS: public ISearcher<T> {
       for(int i = 0; i < neighbors.size(); i++){
         State<T>* neighbor = neighbors[i];
         // update, insert to the stack and to visited map only the first neighbor we see.
-        if(neighbor->getCost() != -1 && visited.find(neighbor) == visited.end()){
+        if((neighbor->getCost() != -1) && (visited.find(neighbor) == visited.end())){
           has_neighbors = 1;
           neighbor->setCameFrom(top_state);
           stack.push(neighbor);
