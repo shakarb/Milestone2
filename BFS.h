@@ -5,36 +5,40 @@
 #ifndef MILESTONE2_BFS_H
 #define MILESTONE2_BFS_H
 #include "Searcher.h"
-
+#include <unordered_map>
+#include <list>
 template <typename T>
 class BFS : public ISearcher<T>{
     virtual vector<State<T>*> search(Searchable<T> *searchable) {
         // ****** need to sum cost ****
-        vector<State<T>> queue;
-        map<State<T>, bool> visited;
+        vector<State<T>*> solution;
+        list<State<T>*> open_list;
+        unordered_map<State<T>*, int> visited;
         State<T> *init = searchable->getInitialState();
-        queue.push_back(init);
-        visited.insert({init, true});
+        open_list.push_back(init);
+        visited.insert({init, 1});
 
-        while (!queue.empty()) {
-            State<T> *state = queue.front();
-            queue.pop_back();
-            this->evaluatedNodes++;
+        while (!open_list.empty()) {
+            State<T> *state = open_list.front();
+            open_list.pop_front();
+            this->evaluated_nodes++;
             if (searchable->isGoalState(state)) {
                 //back trace
-                vector<State<T>*> solution = this->backTrace(state, searchable);
+                solution = this->backTrace(state, searchable);
                 return solution;
             }
-            vector<State<Point *>> successors = searchable->getAllPossisbleStates(state);
+            vector<State<T>*> successors = searchable->getAllPossisbleStates(state);
             for (auto s:successors) {
-                s.setCameFrom(state);
-                if (s.getCost() != -1 && visited.find(s) == visited.end()) {
-                    queue.push_back(s);
-                    visited.insert({s, true});
+                if (s->getCost() != -1 && visited.find(s) == visited.end()) {
+                    s->setCameFrom(state);
+                    open_list.push_back(s);
+                    visited.insert({s, 1});
                 }
             }
+
         }
-        return "Couldn't find a solution";
+        return solution;
+        //return "Couldn't find a solution";
     }
 };
 

@@ -9,8 +9,8 @@ template <typename T>
 class State {
 private:
    T state;
-   int cost;
-   int path_cost;
+   double cost;
+    double path_cost;
    State<T>* came_from;
 public:
     State(T s) {
@@ -25,11 +25,11 @@ public:
       return false;
     }
 
-    void setCost(int c) {
+    void setCost(double c) {
       this->cost = c;
     }
 
-    int getCost() {
+    double getCost() {
       return this->cost;
     }
 
@@ -45,11 +45,11 @@ public:
       return this->state;
     }
 
-    void setPathCost(int bc) {
-        this->path_cost = bc;
+    void setPathCost(double pc) {
+        this->path_cost = pc;
     }
 
-    int getPathCost() {
+    double getPathCost() {
         return this->path_cost;
     }
 };

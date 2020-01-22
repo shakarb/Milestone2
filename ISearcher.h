@@ -6,6 +6,8 @@
 #define MILESTONE2_ISEARCHER_H
 
 #include "Searchable.h"
+#include "State.h"
+#include <unordered_map>
 #include <string>
 
 template <typename T>
