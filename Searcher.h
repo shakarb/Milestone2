@@ -15,9 +15,10 @@
 
 template <typename T>
 class Searcher : public ISearcher<T>{
-  private:
+ protected:
   //open list - priority queue.
-  //priority_queue<State<T>*,vector<State<T>*>,PriorityQueue::compareCost<T>> pq;
+  priority_queue<State<T>*,vector<State<T>*>,compareCost<T>> pq = new PriorityQueue<T>;
+
   protected:
   State<T>* popState() {
     this->evaluated_nodes++;
