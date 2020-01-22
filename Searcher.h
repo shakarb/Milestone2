@@ -9,7 +9,8 @@
 #include "Searchable.h"
 #include "State.h"
 #include "PriorityQueue.h"
-
+#include "compareCost.h"
+#include <queue>
 #include <vector>
 #include <map>
 
@@ -17,9 +18,7 @@ template <typename T>
 class Searcher : public ISearcher<T>{
  protected:
   //open list - priority queue.
-  priority_queue<State<T>*,vector<State<T>*>,compareCost<T>> pq = new PriorityQueue<T>;
-
-  protected:
+  PriorityQueue<T> *pq = new PriorityQueue<T>;
   State<T>* popState() {
     this->evaluated_nodes++;
     //pop from priority queue.

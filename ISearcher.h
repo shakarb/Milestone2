@@ -9,7 +9,8 @@
 #include "State.h"
 #include <unordered_map>
 #include <string>
-
+#include "compareCost.h"
+#include "PriorityQueue.h"
 template <typename T>
 class ISearcher {
 protected:

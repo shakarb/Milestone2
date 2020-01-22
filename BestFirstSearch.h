@@ -7,22 +7,20 @@
 
 #include "Searcher.h"
 #include "PriorityQueue.h"
-#include <queue>
+
 template <typename T>
 class BestFirstSearch : public Searcher<T>{
     virtual vector<State<T>*> search(Searchable<T> *searchable) {
-        //priority_queue <State<T>*, vector<State<T>*>, PriorityQueue::compareCost<T>> open_list;
-        PriorityQueue<T> *pq = new PriorityQueue<T>;
         map<State<T>*, bool> visited;
         State<T> *init = searchable->getInitialState();
         init->setPathCost(0);
         init->setCameFrom(NULL);
-        pq->open_list.push(init);
+        this->pq->pushToOpenList(init);
         //visited.insert({init, true});
 
-        while (!pq->open_list.empty()) {
-            State<T> *state = pq->open_list.top();
-            pq->open_list.pop();
+        while (!this->pq->isEmpty()) {
+            State<T> *state = this->pq->topOfOpenList();
+            this->pq->popFromOpenList();
             visited.insert({state, true});
             //this->evaluatedNodes++;
             if (searchable->isGoalState(state)) {
@@ -32,12 +30,12 @@ class BestFirstSearch : public Searcher<T>{
             }
             vector<State<T>*> successors = searchable->getAllPossisbleStates(state);
             for (auto s:successors) {
-                bool in_open_list = pq->isInOpenList(s);
+                bool in_open_list = this->pq->isInOpenList(s);
                 if (s->getCost() != -1 && visited.find(s) == visited.end() && !in_open_list) {
                     // update cameFrom member of s and push it to open_list
                     s->setCameFrom(state);
                     s->setPathCost(s->getCost() + state->getPathCost());
-                    pq->open_list.push(s);
+                    this->pq->pushToOpenList(s);
                 } else {
                     if(s->getCost() != -1) {
                         // if the new path is better than the current one update it
@@ -45,9 +43,9 @@ class BestFirstSearch : public Searcher<T>{
                             s->setCameFrom(state);
                             s->setPathCost(s->getCost() + state->getPathCost());
                             if (!in_open_list) {
-                                pq->open_list.push(s);
+                                this->pq->pushToOpenList(s);
                             } else {
-                                pq->reorderPriorityQueue();
+                                this->pq->reorderPriorityQueue();
 
                             }
                         }

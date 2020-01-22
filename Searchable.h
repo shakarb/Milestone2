@@ -14,7 +14,6 @@ using namespace std;
 template <typename T>
 class Searchable {
 public:
-    //T getInitialState() {};
     virtual State<T>* getInitialState() = 0;
     virtual bool isGoalState(State<T>* state) = 0;
     virtual vector<State<T>*> getAllPossisbleStates(State<T>* state) = 0;
