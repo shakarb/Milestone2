@@ -49,21 +49,6 @@ public:
     }
 
     virtual vector<State<T>*> search(Searchable<T> *s) = 0;
-/*
-    State<T>* topOfOpenList() {
-        return this->open_list.top();
-    }
-*/
-/*
-    void pushToOpenList(State<T>* state) {
-        this->open_list.push(state);
-    }
-*/
-/*
-    void popFromOpenList() {
-        this->open_list.pop();
-    }
-*/
 };
 
 

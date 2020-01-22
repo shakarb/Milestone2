@@ -7,7 +7,6 @@
 #include "FileCacheManager.h"
 #include "StringReserver.h"
 #include "MyTestClientHandler.h"
-#include "SerialServer.h"
 #include <netinet/in.h>
 
 namespace server_side {

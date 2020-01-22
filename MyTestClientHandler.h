@@ -32,29 +32,6 @@ public:
         string solution, line = "", data = "";
         while (line != "end") {
             read(client_socket, &ch, 1);
-            /*
-            if (ch == '\n') {
-              // check if the problem has a solution - if so, get it from cache
-              // else - solve the problem
-              if (this->cache->hasSolution(line)) {
-                solution = this->cache->get(line);
-              } else {
-                solution = solver->solve(line);
-                this->cache->insert(line, solution);
-              }
-              // Prepare solution for sending it to the client
-              solution.append("\r\n");
-              char solution_msg[solution.length() + 1];
-              strcpy(solution_msg, solution.c_str());
-
-              int is_sent = send(client_socket, solution_msg, strlen(solution_msg), 0);
-              if (is_sent == -1) {
-                cout << "Couldn't send data to client" << endl;
-              }
-              line = "";
-            } else {
-              line.append(1, ch);
-            }*/
             line.append(1, ch);
             if (line == "end") {
                 cout << "Client finished the session" << endl;

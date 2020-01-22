@@ -14,12 +14,12 @@ class BestFirstSearch : public PriorityQueueSearcher<T>{
         State<T> *init = searchable->getInitialState();
         init->setPathCost(0);
         init->setCameFrom(NULL);
-        this->pq->pushToOpenList(init);
+        this->open_list.push(init);
         //visited.insert({init, true});
 
-        while (!this->pq->isEmpty()) {
-            State<T> *state = this->pq->topOfOpenList();
-            this->pq->popFromOpenList();
+        while (!this->open_list.empty()) {
+            State<T> *state = this->open_list.top();
+            this->open_list.pop();
             visited.insert({state, true});
             //this->evaluatedNodes++;
             if (searchable->isGoalState(state)) {
@@ -29,12 +29,12 @@ class BestFirstSearch : public PriorityQueueSearcher<T>{
             }
             vector<State<T>*> successors = searchable->getAllPossisbleStates(state);
             for (auto s:successors) {
-                bool in_open_list = this->pq->isInOpenList(s);
+                bool in_open_list = this->isInOpenList(s);
                 if (s->getCost() != -1 && visited.find(s) == visited.end() && !in_open_list) {
                     // update cameFrom member of s and push it to open_list
                     s->setCameFrom(state);
                     s->setPathCost(s->getCost() + state->getPathCost());
-                    this->pq->pushToOpenList(s);
+                    this->open_list.push(s);
                 } else {
                     if(s->getCost() != -1) {
                         // if the new path is better than the current one update it
@@ -42,9 +42,9 @@ class BestFirstSearch : public PriorityQueueSearcher<T>{
                             s->setCameFrom(state);
                             s->setPathCost(s->getCost() + state->getPathCost());
                             if (!in_open_list) {
-                                this->pq->pushToOpenList(s);
+                                this->open_list.push(s);
                             } else {
-                                this->pq->reorderPriorityQueue();
+                                this->reorderPriorityQueue();
 
                             }
                         }

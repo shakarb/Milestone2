@@ -9,15 +9,17 @@
 #include "DFS.h"
 #include "BFS.h"
 #include "PriorityQueueSearcher.h"
+#include "BestFirstSearch.h"
 
 #include <iostream>
 #include <fstream>
 #include <string>
 #include <vector>
+
 using namespace std;
 int main(int argc, char *argv[]) {
 
-
+/*
   Searchable<Point*> *matrix = new MatrixSearchable("8,2,8,6,8,2,12,2,4,1,9,9,5,12,1,1,1,2,7,3,1,6,9,3,9,7,7,9,5,6,4,5,1,6,-1,1,7\n"
                                                     "4,12,2,3,2,5,2,1,12,2,4,5,4,3,3,4,12,2,3,9,6,9,1,6,7,7,5,8,7,2,-1,3,2,5,-1,9,2\n"
                                                     "1, 5, 8, 9, 2, 1, 2, 4, 7, 8, 2, 9, 8, 4, 2, 2,12, 8, 8, 2, 3, 3, 1, 5,12,-1, 2, 7, 1, 4,-1,-1,-1, 2,-1, 5, 6\n"
@@ -57,10 +59,12 @@ int main(int argc, char *argv[]) {
                                                     "12, 1, 9, 5, 9, 2, 6,12, 3, 4,12,-1,12, 7, 9, 2, 1, 2, 2, 4, 6,12, 2, 2, 2, 3, 4, 1, 4, 4, 2, 4,12, 6, 2, 5, 6\n"
                                                     "0,0\n"
                                                     "36,36\n");
-  //Searchable<Point*> *matrix = new MatrixSearchable("1,2,-1\n4,15,6\n7, 8, 9\n0,0\n2,2\n");
-  ISearcher<Point*>* s = new DFS<Point*>();
+*/
+  Searchable<Point*> *matrix = new MatrixSearchable("1,3,1\n4,5,3\n0,0,4\n0,0\n2,2\n");
+  ISearcher<Point*>* s = new BestFirstSearch<Point*>();
   vector<State<Point*>*> v =s->search(matrix);
   string a = matrix->getDirection(&v);
+  cout<<a<<endl;
 
 /*
 >>>>>>> repairs
@@ -75,4 +79,4 @@ int main(int argc, char *argv[]) {
   //server_side::boot::Main().main(argc ,argv);
 */
   return 0;
-}
+};
