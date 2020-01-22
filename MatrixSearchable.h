@@ -8,6 +8,7 @@
 #include "Searchable.h"
 #include <string>
 #include <vector>
+#include <tgmath.h>
 #include "Point.h"
 #include "State.h"
 #include <iostream>
@@ -67,7 +68,7 @@ class MatrixSearchable: public Searchable<Point*> {
 
   string getDirection(vector<State<Point*>*> *trace);
 
-
+  double disFromGoal(State<Point*>* state);
 };
 
 

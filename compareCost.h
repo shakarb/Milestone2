@@ -10,7 +10,9 @@
 template <typename T>
 struct compareCost {
     bool operator()(State<T> *s1,State<T> *s2) {
-        return s2->getPathCost() < s1->getPathCost();
+        //return s2->getPathCost() < s1->getPathCost();
+      return s2->getPathCost() + s2->getDistanceFromGoal() < s1->getPathCost() + s1->getDistanceFromGoal();
+
     }
 };
 

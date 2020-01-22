@@ -48,6 +48,8 @@ class DFS: public ISearcher<T> {
       }
       has_neighbors = 0;
     }
+    vector<State<T>*> empty_vector;
+    return empty_vector;
   }
 
 };

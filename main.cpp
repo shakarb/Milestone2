@@ -11,6 +11,7 @@
 #include "PriorityQueueSearcher.h"
 #include "BestFirstSearch.h"
 
+#include "AStar.h"
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -58,10 +59,10 @@ int main(int argc, char *argv[]) {
                                                     "3, 1, 2, 8, 1, 4, 7, 9, 3, 7, 3, 6, 6, 6, 3, 9, 9, 3, 9, 3, 3, 7, 5,12, 2, 8, 2, 2, 5, 4, 9, 8, 5, 3, 2, 6, 4\n"
                                                     "12, 1, 9, 5, 9, 2, 6,12, 3, 4,12,-1,12, 7, 9, 2, 1, 2, 2, 4, 6,12, 2, 2, 2, 3, 4, 1, 4, 4, 2, 4,12, 6, 2, 5, 6\n"
                                                     "0,0\n"
-                                                    "36,36\n");
-*/
-  Searchable<Point*> *matrix = new MatrixSearchable("1,3,1\n4,5,3\n0,0,4\n0,0\n2,2\n");
-  ISearcher<Point*>* s = new BestFirstSearch<Point*>();
+                                                    "36,36\n");*/
+
+  Searchable<Point*> *matrix = new MatrixSearchable("1,3,2\n3,-1,-1\n2,-1,3\n0,0\n2,2\n");
+  ISearcher<Point*>* s = new AStar<Point*>();
   vector<State<Point*>*> v =s->search(matrix);
   string a = matrix->getDirection(&v);
   cout<<a<<endl;

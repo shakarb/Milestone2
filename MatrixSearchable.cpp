@@ -182,6 +182,11 @@ vector<State<Point*>*> MatrixSearchable::getAllPossisbleStates(State<Point*>* st
 }
 
 string MatrixSearchable::getDirection(vector<State<Point*>*> *trace) {
+  if(trace->empty()) {
+    string message = "unable to reach the goal";
+    return message;
+  }
+
   string solution = "";
   for(int i = trace->size() - 1; i > 0; i--) {
     solution.append(",");
@@ -207,4 +212,15 @@ string MatrixSearchable::getDirection(vector<State<Point*>*> *trace) {
   solution.erase(solution.begin());
   solution.append("\n");
   return solution;
+}
+
+double MatrixSearchable::disFromGoal(State<Point *> *state) {
+  double dis;
+  int xGoal = this->end_point->getX();
+  int yGoal = this->end_point->getY();
+  int xCurr = state->getState()->getX();
+  int yCurr = state->getState()->getY();
+
+  dis = sqrt(pow(yCurr - yGoal, 2) + pow(xCurr - xGoal, 2));
+  return dis;
 }

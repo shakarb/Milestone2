@@ -10,11 +10,13 @@ class State {
 private:
    T state;
    double cost;
-    double path_cost;
+   double path_cost;
+   double distance_from_goal;
    State<T>* came_from;
 public:
     State(T s) {
       this->state = s;
+      this->distance_from_goal = 0;
     }
     // work only in the cases that T is an address of something
     bool equals(State<T>* state_obj) {
@@ -52,6 +54,15 @@ public:
     double getPathCost() {
         return this->path_cost;
     }
+
+    void setDistanceFromGoal(double d) {
+      this->distance_from_goal = d;
+    }
+
+    double getDistanceFromGoal() {
+      return this->distance_from_goal;
+    }
+
 };
 
 
