@@ -4,7 +4,6 @@
 
 #ifndef MILESTONE2_BFS_H
 #define MILESTONE2_BFS_H
-#include "Searcher.h"
 #include <unordered_map>
 #include <list>
 template <typename T>

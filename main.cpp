@@ -2,14 +2,13 @@
 #include "MyTestClientHandler.h"
 #include "FileCacheManager.h"
 #include "StringReserver.h"
-#include "Searcher.h"
 #include "SearchableSolver.h"
 #include "MatrixSearchable.h"
 #include "State.h"
 #include "Point.h"
 #include "DFS.h"
 #include "BFS.h"
-#include "PriorityQueue.h"
+#include "PriorityQueueSearcher.h"
 
 #include <iostream>
 #include <fstream>

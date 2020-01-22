@@ -8,11 +8,17 @@
 #include "State.h"
 #include "compareCost.h"
 #include <queue>
-#include "Searcher.h"
+#include "ISearcher.h"
+
 template <typename T>
-class PriorityQueue {
+class PriorityQueueSearcher : public ISearcher<T>{
 protected:
     priority_queue<State<T>*, vector<State<T>*>, compareCost<T>> open_list;
+
+    void popState() {
+      this->evaluated_nodes++;
+      this->open_list.pop();
+    }
 public:
     void reorderPriorityQueue() {
         priority_queue <State<T>*, vector<State<T>*>, compareCost<T>> tmp_open_list;
@@ -35,14 +41,6 @@ public:
         return false;
     }
 
-    void pushToOpenList(State<T>* state) {
-        this->open_list.push(state);
-    }
-
-    void popFromOpenList() {
-        this->open_list.pop();
-    }
-
     bool isEmpty() {
         if(this->open_list.empty()) {
             return true;
@@ -50,10 +48,22 @@ public:
         return false;
     }
 
+    virtual vector<State<T>*> search(Searchable<T> *s) = 0;
+/*
     State<T>* topOfOpenList() {
         return this->open_list.top();
     }
-
+*/
+/*
+    void pushToOpenList(State<T>* state) {
+        this->open_list.push(state);
+    }
+*/
+/*
+    void popFromOpenList() {
+        this->open_list.pop();
+    }
+*/
 };
 
 

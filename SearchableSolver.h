@@ -6,7 +6,8 @@
 #define MILESTONE2__OBJECTADAPTER_H_
 
 #include "Solver.h"
-#include "Searcher.h"
+#include "Searchable.h"
+#include "ISearcher.h"
 
 template <typename P, typename  S, typename T, typename SE>
 class SearchableSolver : public Solver<P,S> {

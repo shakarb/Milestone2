@@ -5,11 +5,10 @@
 #ifndef MILESTONE2_BESTFIRSTSEARCH_H
 #define MILESTONE2_BESTFIRSTSEARCH_H
 
-#include "Searcher.h"
-#include "PriorityQueue.h"
+#include "PriorityQueueSearcher.h"
 
 template <typename T>
-class BestFirstSearch : public Searcher<T>{
+class BestFirstSearch : public PriorityQueueSearcher<T>{
     virtual vector<State<T>*> search(Searchable<T> *searchable) {
         map<State<T>*, bool> visited;
         State<T> *init = searchable->getInitialState();
