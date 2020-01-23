@@ -35,14 +35,12 @@ public:
             line.append(1, ch);
             if (line == "end") {
                 cout << "Client finished the session" << endl;
-                close(client_socket);
             }
             if (ch == '\n') {
                 data = data + line;
                 line = "";
             }
         }
-        cout<<data<<endl;
         // remove the spaces from the expression_string string.
         data.erase(remove(data.begin(), data.end(), ' '), data.end());
         if (this->cache->hasSolution(data)) {
@@ -52,7 +50,6 @@ public:
             this->cache->insert(data, solution);
         }
         // Prepare solution for sending it to the client
-        //solution.append("\r\n");
         char solution_msg[solution.length() + 1];
         strcpy(solution_msg, solution.c_str());
 

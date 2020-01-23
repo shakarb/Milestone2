@@ -26,7 +26,8 @@ class FileCacheManager : public CacheManager<string, string>{
     this ->capacity = capa;
   }
 
-  void insert(string problem, string solution){
+  void insert(string problem, string solution) {
+      string str_hash_prob = stringToHash(problem);
     // to this problem will be a solution so:
     this->problems_with_solutions[problem] = true;
     //if the problem isn't in the map.
@@ -42,10 +43,10 @@ class FileCacheManager : public CacheManager<string, string>{
       }
 
       // the problem is - problem.to_string
-      ofstream outFile(problem);
+      ofstream outFile(str_hash_prob);
       if(!outFile) {
         //throw "cannot open file" + problem;
-        cout<<"cannot open file" + problem<<endl;
+        cout<<"cannot open file" + str_hash_prob<<endl;
       }
       outFile << solution;
       outFile.close();
@@ -61,7 +62,7 @@ class FileCacheManager : public CacheManager<string, string>{
       this->cacheList.push_front(updatePair);
       this->cacheMap[problem] = this->cacheList.begin();
 
-      ofstream outFile(problem);
+      ofstream outFile(str_hash_prob);
       if(!outFile) {
         //throw "cannot open file" + problem;
         cout<<"cannot open file" + problem<<endl;
@@ -73,16 +74,17 @@ class FileCacheManager : public CacheManager<string, string>{
 
 
   string get(string problem){
+      string str_hash_prob = stringToHash(problem);
     //if the problem is in the cache
     if(this->cacheMap.find(problem)!= this->cacheMap.end()) {
       // save the object that we want return.
       auto cacheValue = this->cacheMap.find(problem)->second;
-      //update him to be the most used.
+      //update it to be the most used.
       this->cacheList.erase(cacheValue);
       this->cacheList.push_front(pair<string, string>(cacheValue->first,cacheValue->second));
       return cacheValue->second;
     } else {
-      std::ifstream inFile(problem);
+      std::ifstream inFile(str_hash_prob);
       if(!inFile){
         //throw "an error";
         cout<<"cannot open file to read"<<endl;
@@ -116,6 +118,15 @@ class FileCacheManager : public CacheManager<string, string>{
       return false;
     }
     return true;
+  }
+
+  string stringToHash(string data) {
+      hash<string> str_hash;
+      size_t res_hash;
+      string str_prob;
+      res_hash = str_hash(data);
+      str_prob = to_string(res_hash);
+      return str_prob;
   }
 };
 #endif //MILESTONE2__FILECACHEMANAGER_H_

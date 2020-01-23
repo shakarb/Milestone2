@@ -1,4 +1,5 @@
 #include "SerialServer.h"
+#include "ParallelServer.h"
 #include "MyTestClientHandler.h"
 #include "FileCacheManager.h"
 #include "StringReserver.h"
@@ -20,7 +21,7 @@
 using namespace std;
 int main(int argc, char *argv[]) {
 
-/*
+    /*
   Searchable<Point*> *matrix = new MatrixSearchable("8,2,8,6,8,2,12,2,4,1,9,9,5,12,1,1,1,2,7,3,1,6,9,3,9,7,7,9,5,6,4,5,1,6,-1,1,7\n"
                                                     "4,12,2,3,2,5,2,1,12,2,4,5,4,3,3,4,12,2,3,9,6,9,1,6,7,7,5,8,7,2,-1,3,2,5,-1,9,2\n"
                                                     "1, 5, 8, 9, 2, 1, 2, 4, 7, 8, 2, 9, 8, 4, 2, 2,12, 8, 8, 2, 3, 3, 1, 5,12,-1, 2, 7, 1, 4,-1,-1,-1, 2,-1, 5, 6\n"
@@ -59,25 +60,25 @@ int main(int argc, char *argv[]) {
                                                     "3, 1, 2, 8, 1, 4, 7, 9, 3, 7, 3, 6, 6, 6, 3, 9, 9, 3, 9, 3, 3, 7, 5,12, 2, 8, 2, 2, 5, 4, 9, 8, 5, 3, 2, 6, 4\n"
                                                     "12, 1, 9, 5, 9, 2, 6,12, 3, 4,12,-1,12, 7, 9, 2, 1, 2, 2, 4, 6,12, 2, 2, 2, 3, 4, 1, 4, 4, 2, 4,12, 6, 2, 5, 6\n"
                                                     "0,0\n"
-                                                    "36,36\n");*/
+                                                    "36,36\n");
 
-  Searchable<Point*> *matrix = new MatrixSearchable("1,3,2\n3,-1,-1\n2,-1,3\n0,0\n2,2\n");
-  ISearcher<Point*>* s = new AStar<Point*>();
+  //Searchable<Point*> *matrix = new MatrixSearchable("1,3,1\n4,5,3\n0,0,4\n0,0\n2,2\n");
+
+  ISearcher<Point*>* s = new BFS<Point*>();
   vector<State<Point*>*> v =s->search(matrix);
   string a = matrix->getDirection(&v);
-  cout<<a<<endl;
-
-/*
->>>>>>> repairs
-  //int port = stoi(argv[1]);
+  cout<<a<<endl;*/
+    
+///  //int port = stoi(argv[1]);
   CacheManager<string, string> *cache = new FileCacheManager(5);
-  ISearcher<Point*> *algorithm = new DFS<Point*>;
+  ISearcher<Point*> *algorithm = new BFS<Point*>;
   Solver<string, string> *solver = new SearchableSolver<string,string,Point*,MatrixSearchable>(algorithm);
   ClientHandler *clientHandler = new MyTestClientHandler<string,string>(cache, solver);
+  //server_side::Server *server = new ParallelServer();
   server_side::Server *server = new SerialServer();
   server->open(5600, clientHandler);
 
   //server_side::boot::Main().main(argc ,argv);
-*/
+
   return 0;
 };
