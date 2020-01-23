@@ -9,14 +9,13 @@
 template <typename T>
 class BFS : public ISearcher<T>{
     virtual vector<State<T>*> search(Searchable<T> *searchable) {
-        // ****** need to sum cost ****
         vector<State<T>*> solution;
         list<State<T>*> open_list;
-        unordered_map<State<T>*, int> visited;
+        unordered_map<State<T>*, bool> visited;
         State<T> *init = searchable->getInitialState();
         init->setPathCost(init->getCost());
         open_list.push_back(init);
-        visited.insert({init, 1});
+        visited.insert({init, true});
 
         while (!open_list.empty()) {
             State<T> *state = open_list.front();
@@ -33,13 +32,11 @@ class BFS : public ISearcher<T>{
                     s->setCameFrom(state);
                     s->setPathCost(s->getCost() + state->getPathCost());
                     open_list.push_back(s);
-                    visited.insert({s, 1});
+                    visited.insert({s, true});
                 }
             }
-
         }
         return solution;
-        //return "Couldn't find a solution";
     }
 };
 

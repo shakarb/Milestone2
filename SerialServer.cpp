@@ -15,7 +15,6 @@ int SerialServer::getClients(sockaddr_in address, int socketfd, ClientHandler *c
         if(client_socket == -1) {
             cout<<"Client hasn't connected for 2 minutes"<<endl;
             this->stop();
-            //return -4;
         } else {
             cout<<"Client is connected"<<endl;
             ch->handleClient(client_socket);
@@ -23,7 +22,6 @@ int SerialServer::getClients(sockaddr_in address, int socketfd, ClientHandler *c
 
         //close(client_socket);
     }
-
 }
 
 /*
@@ -71,8 +69,9 @@ int SerialServer::open(int port, ClientHandler *ch) {
 }
 
 /*
- * Stop getting clients
- */
+* Stop getting clients
+*/
 void SerialServer::stop() {
     this->isStop = true;
 }
+

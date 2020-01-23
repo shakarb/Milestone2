@@ -12,10 +12,7 @@
 namespace server_side {
   class Server {
    public:
-    //virtual int open(int port, ClientHandler* ch) = 0;
     virtual int open(int port, ClientHandler *ch) = 0;
-    virtual void stop() = 0;
-
   };
 
   namespace boot {

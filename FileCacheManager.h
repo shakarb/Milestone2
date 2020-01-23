@@ -12,6 +12,7 @@
 #include <fstream>
 #include <functional>
 #include <vector>
+
 using namespace std;
 
 class FileCacheManager : public CacheManager<string, string>{
@@ -79,9 +80,12 @@ class FileCacheManager : public CacheManager<string, string>{
     if(this->cacheMap.find(problem)!= this->cacheMap.end()) {
       // save the object that we want return.
       auto cacheValue = this->cacheMap.find(problem)->second;
-      //update it to be the most used.
+      string pr = cacheValue->first;
+      string so = cacheValue->second;
       this->cacheList.erase(cacheValue);
-      this->cacheList.push_front(pair<string, string>(cacheValue->first,cacheValue->second));
+      this->cacheMap.erase(problem);
+      this->cacheList.push_front(pair<string, string>(pr,so));
+      this->cacheMap[pr] = this->cacheList.begin();
       return cacheValue->second;
     } else {
       std::ifstream inFile(str_hash_prob);
@@ -113,8 +117,9 @@ class FileCacheManager : public CacheManager<string, string>{
   }
 
   bool hasSolution(string problem) {
+      ifstream f(stringToHash(problem));
     //if the problem isn't has a solution.
-    if(this->problems_with_solutions.find(problem) == this->problems_with_solutions.end()) {
+    if(this->problems_with_solutions.find(problem) == this->problems_with_solutions.end() && !f.good()) {
       return false;
     }
     return true;

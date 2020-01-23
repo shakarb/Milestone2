@@ -16,9 +16,8 @@ using namespace std;
 using namespace server_side;
 
 class SerialServer : public Server {
- private:
-  volatile bool isStop = false;
-
+private:
+    volatile bool isStop = false;
  public:
   virtual int open(int port, ClientHandler *ch);
   int getClients(sockaddr_in address, int socketfd, ClientHandler *ch);
