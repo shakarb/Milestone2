@@ -22,8 +22,8 @@ class SearchableSolver : public Solver<P,S> {
         // create searchable object from the problem
         Searchable<T> *searchable = new SE(problem);
         vector<State<T>*> trace = this->searcher->search(searchable);
-        return searchable->getDirection(trace);
-
+        searchable->getInitialState();
+        return searchable->getDirection(&trace);
     }
 };
 #endif //MILESTONE2__OBJECTADAPTER_H_
