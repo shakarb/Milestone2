@@ -12,7 +12,7 @@ class BestFirstSearch : public PriorityQueueSearcher<T>{
     virtual vector<State<T>*> search(Searchable<T> *searchable) {
         map<State<T>*, bool> visited;
         State<T> *init = searchable->getInitialState();
-        init->setPathCost(0);
+        init->setPathCost(init->getCost());
         init->setCameFrom(NULL);
         this->open_list.push(init);
         //visited.insert({init, true});

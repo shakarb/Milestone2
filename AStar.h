@@ -54,11 +54,8 @@ class AStar : public PriorityQueueSearcher<T> {
 
     while (!this->open_list.empty()) {
       State<T> *state = this->open_list.top();
-      //this->open_list.pop();
       this->popState();
       visited.insert({state, true});
-
-      //this->evaluatedNodes++;
       if (searchable->isGoalState(state)) {
         // call back trace
         vector<State<T>*> solution = this->backTrace(state, searchable);

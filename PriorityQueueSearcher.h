@@ -17,7 +17,6 @@ protected:
 
     void popState() {
       this->evaluated_nodes++;
-      cout<<"plus 1"<<endl;
       this->open_list.pop();
     }
 public:

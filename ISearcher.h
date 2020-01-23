@@ -19,9 +19,11 @@ public:
     ISearcher() {
       this->evaluated_nodes = 0;
     }
+
     int getNumberOfNodesEvaluated() {
         return this->evaluated_nodes;
     }
+
     virtual vector<State<T>*>search(Searchable<T> *s) = 0;
 
     vector<State<T>*> backTrace(State<T>* current, Searchable<T>* searchable) {
@@ -33,6 +35,7 @@ public:
       trace.push_back(searchable->getInitialState());
       return trace;
     }
+
 };
 
 

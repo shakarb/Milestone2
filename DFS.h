@@ -14,8 +14,9 @@ class DFS: public ISearcher<T> {
   vector<State<T>*> search(Searchable<T> *s) {
     unordered_map<State<T>*, bool> visited;
     stack<State<T>*> stack;
-    int cost_sum = 0;
+    //int cost_sum = 0;
     State<T>* init_state = s->getInitialState();
+    init_state->setPathCost(init_state->getCost());
     int has_neighbors = 0;
     // initialize for the beginning of the algorithm running.
     stack.push(init_state);
@@ -23,7 +24,7 @@ class DFS: public ISearcher<T> {
 
     while(!stack.empty()) {
       State<T>* top_state = stack.top();
-      cost_sum+=top_state->getCost();
+      //cost_sum+=top_state->getCost();
       this->evaluated_nodes++;
       if(s->isGoalState(top_state)) {
         vector<State<T>*> solution = this->backTrace(top_state, s);
@@ -36,6 +37,7 @@ class DFS: public ISearcher<T> {
         if((neighbor->getCost() != -1) && (visited.find(neighbor) == visited.end())){
           has_neighbors = 1;
           neighbor->setCameFrom(top_state);
+          neighbor->setPathCost(neighbor->getCost() + top_state->getPathCost());
           stack.push(neighbor);
           visited.insert({neighbor, true});
           break;
@@ -48,6 +50,7 @@ class DFS: public ISearcher<T> {
       }
       has_neighbors = 0;
     }
+
     vector<State<T>*> empty_vector;
     return empty_vector;
   }

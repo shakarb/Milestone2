@@ -9,7 +9,7 @@ add_executable(Milestone2 main.cpp Server.h ClientHandler.h SerialServer.h Seria
                 StringReserver.cpp StringReserver.h SearchableSolver.h
                 Searchable.h MatrixSearchable.h State.h Point.cpp Point.h BFS.h
                 MatrixSearchable.cpp ISearcher.h DFS.h PriorityQueueSearcher.h
-                BestFirstSearch.h compareCost.h AStar.h)
+                BestFirstSearch.h compareCost.h AStar.h tester.h)
 
 
 

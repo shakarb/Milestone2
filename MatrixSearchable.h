@@ -22,6 +22,7 @@ class MatrixSearchable: public Searchable<Point*> {
   Point* end_point;
   int num_rows;
   int num_cols;
+  int solution_cost;
 
   /*
    * converting the matrix from string to vector of vectors of states.
@@ -69,6 +70,8 @@ class MatrixSearchable: public Searchable<Point*> {
   string getDirection(vector<State<Point*>*> *trace);
 
   double disFromGoal(State<Point*>* state);
+
+  int getSolutionCost();
 };
 
 

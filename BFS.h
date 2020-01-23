@@ -14,6 +14,7 @@ class BFS : public ISearcher<T>{
         list<State<T>*> open_list;
         unordered_map<State<T>*, int> visited;
         State<T> *init = searchable->getInitialState();
+        init->setPathCost(init->getCost());
         open_list.push_back(init);
         visited.insert({init, 1});
 
@@ -27,9 +28,10 @@ class BFS : public ISearcher<T>{
                 return solution;
             }
             vector<State<T>*> successors = searchable->getAllPossisbleStates(state);
-            for (auto s:successors) {
+            for (State<T>* s:successors) {
                 if (s->getCost() != -1 && visited.find(s) == visited.end()) {
                     s->setCameFrom(state);
+                    s->setPathCost(s->getCost() + state->getPathCost());
                     open_list.push_back(s);
                     visited.insert({s, 1});
                 }

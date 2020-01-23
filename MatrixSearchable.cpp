@@ -187,9 +187,10 @@ string MatrixSearchable::getDirection(vector<State<Point*>*> *trace) {
     return message;
   }
 
+  solution_cost = (*trace)[0]->getPathCost();
   string solution = "";
   for(int i = trace->size() - 1; i > 0; i--) {
-    solution.append(",");
+    solution.append(" ,");
     State<Point*>* father = (*trace)[i];
     State<Point*>* son = (*trace)[i - 1];
     int son_x = son->getState()->getX();
@@ -197,19 +198,27 @@ string MatrixSearchable::getDirection(vector<State<Point*>*> *trace) {
     int father_x = father->getState()->getX();
     int father_y = father->getState()->getY();
     if(son_x > father_x && son_y == father_y) {
-      solution.append("Down");
+      solution.append("Down (");
+      solution.append(to_string((int)son->getPathCost()));
+      solution.append(")");
     }
     if(son_x < father_x && son_y == father_y) {
-      solution.append("Up");
+      solution.append("Up (");
+      solution.append(to_string((int)son->getPathCost()));
+      solution.append(")");
     }
     if(son_x == father_x && son_y < father_y) {
-      solution.append("Left");
+      solution.append("Left (");
+      solution.append(to_string((int)son->getPathCost()));
+      solution.append(")");
     }
     if(son_x == father_x && son_y > father_y) {
-      solution.append("Right");
+      solution.append("Right (");
+      solution.append(to_string((int)son->getPathCost()));
+      solution.append(")");
     }
   }
-  solution.erase(solution.begin());
+  solution.erase(solution.begin() + 1);
   solution.append("\n");
   return solution;
 }
@@ -223,4 +232,8 @@ double MatrixSearchable::disFromGoal(State<Point *> *state) {
 
   dis = sqrt(pow(yCurr - yGoal, 2) + pow(xCurr - xGoal, 2));
   return dis;
+}
+
+int MatrixSearchable::getSolutionCost() {
+  return this->solution_cost;
 }
