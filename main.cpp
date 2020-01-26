@@ -20,7 +20,12 @@
 
 using namespace std;
 int main(int argc, char *argv[]) {
-    int port = stoi(argv[1]);
+    int port;
+    if(argc == 2) {
+        port = stoi(argv[1]);
+    } else {
+        port = 5600;
+    }
     CacheManager<string, string> *cache = new FileCacheManager(5);
     ISearcher<Point*> *algorithm = new AStar<Point*>;
     Solver<string, string> *solver = new SearchableSolver<string,string,Point*,MatrixSearchable>(algorithm);
