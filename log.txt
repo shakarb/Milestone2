@@ -1,0 +1,290 @@
+commit a095b947eb2912c34a4872e041ec1c56cd9db432
+Author: batelpir <batelpirov1@gmail.com>
+Date:   Sun Jan 26 16:01:10 2020 +0200
+
+    remove a comment
+
+commit b6bfe86c05e75997d5d94a414f1a3df3a58d5355
+Author: batelpir <batelpirov1@gmail.com>
+Date:   Sun Jan 26 15:57:35 2020 +0200
+
+    removed boot nameSpace
+
+commit f8465b6928d604a71e169ca71cfe90bb9bdda3f4
+Author: shakarb <58907412+shakarb@users.noreply.github.com>
+Date:   Sun Jan 26 15:02:25 2020 +0200
+
+    updated readme
+
+commit ca3323fd8e34627546ce4b6543bc501e2fc9c125
+Author: shakarb <shakarbili@gmail.com>
+Date:   Sun Jan 26 14:54:03 2020 +0200
+
+    use default port if not supplied as an argument
+
+commit dd845a20a64436f95446656feb0bee0490850848
+Author: shakarb <shakarbili@gmail.com>
+Date:   Sun Jan 26 13:45:46 2020 +0200
+
+    deep clone was added to all relevant classes
+
+commit 22d374879457afbbd683ea06a992aab1ad5b77e2
+Author: batelpir <batelpirov1@gmail.com>
+Date:   Sat Jan 25 21:47:44 2020 +0200
+
+    4 text files were added
+
+commit b8c129d13ec60e51488fca448ec759943302509e
+Author: shakarb <58907412+shakarb@users.noreply.github.com>
+Date:   Fri Jan 24 00:59:42 2020 +0200
+
+    readme file
+
+commit 4f73e541e62ae1fae7693f3fd266f564c21348a2
+Author: shakarb <shakarbili@gmail.com>
+Date:   Thu Jan 23 23:06:41 2020 +0200
+
+    fixed cache manager
+
+commit 70769f92d8d8550264f65a7f4193e2af3b90d39e
+Author: batelpir <batelpirov1@gmail.com>
+Date:   Thu Jan 23 22:02:05 2020 +0200
+
+    more methods and changes were added
+
+commit ffeecb680e133e0d0ad4656d011e076333b6bef7
+Author: shakarb <shakarbili@gmail.com>
+Date:   Thu Jan 23 16:10:08 2020 +0200
+
+    Parallel server implementaion - the program can handle many clients at the same time
+
+commit 8387ad1a54b38043d8efd8d6faa9602a7bc0546d
+Author: shakarb <shakarbili@gmail.com>
+Date:   Thu Jan 23 08:36:06 2020 +0200
+
+    pass trace param by reference and not by value
+
+commit 63bc9995d688da99eab4a03e81c6e38ba86dba72
+Author: shakarb <shakarbili@gmail.com>
+Date:   Thu Jan 23 08:34:33 2020 +0200
+
+    using hash function as a name of a file in cache manager
+
+commit fd1de5025be6d1043034b249e68d35674c2ef75c
+Author: batelpir <batelpirov1@gmail.com>
+Date:   Wed Jan 22 22:52:05 2020 +0200
+
+    astar algorithm was added
+    more few changes were added in the rest of the files
+
+commit ba0dac5e70bac64619c1fec16daaf7c9db9762db
+Author: shakarb <shakarbili@gmail.com>
+Date:   Wed Jan 22 15:29:16 2020 +0200
+
+    More fixes to PriorityQueue
+
+commit 9ba63c24980ad52d2dd1c7fb2116d995e8ec84cd
+Author: batelpir <batelpirov1@gmail.com>
+Date:   Wed Jan 22 14:45:25 2020 +0200
+
+    removed "searcher" and put instead of it "PriorityQueueSearcher"
+
+commit bc2653f0cd31424d54a313d9d5e388f2d285ce4d
+Author: shakarb <shakarbili@gmail.com>
+Date:   Wed Jan 22 13:06:01 2020 +0200
+
+    new methods were added to PriorityQueue class
+
+commit 1e4af89beba0e47c4b4476b513e7961a382e6973
+Author: batelpir <batelpirov1@gmail.com>
+Date:   Wed Jan 22 11:08:52 2020 +0200
+
+    priority queue was defined as protected member.Astar Algoritm was added
+
+commit 565a56800c09c3bf682ebdcc8b429c710d19e488
+Author: shakarb <shakarbili@gmail.com>
+Date:   Wed Jan 22 10:51:55 2020 +0200
+
+    Best First algorithm and Priority queue.Some fixes of BFS were added
+
+commit 216e46a9e002d35cd14790771c5ed65a75d74692
+Author: batelpir <batelpirov1@gmail.com>
+Date:   Tue Jan 21 19:53:56 2020 +0200
+
+    fixed code
+
+commit bd8281835b5c1e5aee09e2d09bc7dfda64d6d756
+Author: batelpir <batelpirov1@gmail.com>
+Date:   Tue Jan 21 01:45:26 2020 +0200
+
+    a line was added to client.
+    the converted to matrix was changed
+
+commit e15822e2bca24a68bc7e622c50139f3d9924b638
+Author: batelpir <batelpirov1@gmail.com>
+Date:   Mon Jan 20 21:41:09 2020 +0200
+
+    the name best cost was changed to be path cost - in state class
+    and one more change in get direction.
+
+commit 69ef5b0b1e3b72b0c2ed7a59b486cc7401ba97c4
+Author: shakarb <shakarbili@gmail.com>
+Date:   Mon Jan 20 20:43:13 2020 +0200
+
+    best cost member was added
+
+commit 08fc90f71ecd65634114b8a09cd10417c0da2523
+Author: batelpir <batelpirov1@gmail.com>
+Date:   Mon Jan 20 20:19:27 2020 +0200
+
+    repairs
+
+commit 0819123c3368a06716b2e4cd2db06abd6cb8a98d
+Author: shakarb <shakarbili@gmail.com>
+Date:   Mon Jan 20 20:13:55 2020 +0200
+
+    pass vector to matrix by reference
+
+commit 0471725cbff566d5b61df127190de82173636807
+Author: batelpir <batelpirov1@gmail.com>
+Date:   Mon Jan 20 19:02:51 2020 +0200
+
+    repairs
+
+commit fcf191150f76186b30923ccf90f93e31225671fa
+Author: shakarb <shakarbili@gmail.com>
+Date:   Mon Jan 20 18:22:10 2020 +0200
+
+    Priority queue for BestFirstSearch was added
+
+commit 8ba9384fe0cfc6e61829dbf636924f6cf81a3288
+Author: shakarb <shakarbili@gmail.com>
+Date:   Mon Jan 20 18:20:59 2020 +0200
+
+    Backtrace method was added to BFS
+
+commit b243530d23a0fe5103b09a84d68cc054e75e08a7
+Author: batelpir <batelpirov1@gmail.com>
+Date:   Mon Jan 20 18:01:30 2020 +0200
+
+    fixed bugs
+
+commit 90a272ddadfe94b576775dc08fb8beb3d1f315c0
+Author: batelpir <batelpirov1@gmail.com>
+Date:   Mon Jan 20 17:25:40 2020 +0200
+
+    dfs algorithm was added.
+    back_trace function was added.
+    isearcher interface was changed.
+
+commit ac96aac3b2e12257b24361b46df07f5791ab0cae
+Author: shakarb <shakarbili@gmail.com>
+Date:   Sun Jan 19 21:29:05 2020 +0200
+
+    BFS implementation was added, backtrace is missing
+
+commit 95ace0b47137b71ae62c7552f2a098cbd5115170
+Author: batelpir <batelpirov1@gmail.com>
+Date:   Sun Jan 19 17:58:36 2020 +0200
+
+    repairs.
+
+commit d551f7aceb0b1036d5cabcc4b1fbac0c8db13f72
+Author: shakarb <shakarbili@gmail.com>
+Date:   Sun Jan 19 17:21:50 2020 +0200
+
+    getNumberOfNodes method was added to ISearcher interface
+
+commit 89e4209523c15616b920ec2767e3e6d1cc3fc5c7
+Author: shakarb <shakarbili@gmail.com>
+Date:   Sun Jan 19 14:57:07 2020 +0200
+
+    Isearcher class was added
+
+commit 4cc9c6b18f21fe1121c567c09899d252f3cc25d8
+Author: batelpir <batelpirov1@gmail.com>
+Date:   Sun Jan 19 13:46:46 2020 +0200
+
+    made new cpp to matrix.
+    matrix is static.
+    more functions were added to point, matrix.
+
+commit 84959f5c86e719334f33e284d799dfdea296982f
+Author: shakarb <shakarbili@gmail.com>
+Date:   Fri Jan 17 13:38:43 2020 +0200
+
+    Client handler able to handle with matrix input
+
+commit 68a6b647863f7786ca4732c2150a8048efca234f
+Author: shakarb <shakarbili@gmail.com>
+Date:   Fri Jan 17 12:51:13 2020 +0200
+
+    get reference type in SearchableSolver
+
+commit ca314a789ec98a1c8b6b1987ff07386d1c7d1b7e
+Author: shakarb <shakarbili@gmail.com>
+Date:   Fri Jan 17 11:38:57 2020 +0200
+
+    default constructor was added to Point class
+
+commit 80af070836b0e40788a932d0d4b40e1019f38540
+Author: batelpir <batelpirov1@gmail.com>
+Date:   Fri Jan 17 11:30:38 2020 +0200
+
+    repairs
+
+commit 3d244ddf0e651cac8a1832d0d1e3b6852908bd2c
+Author: shakarb <shakarbili@gmail.com>
+Date:   Fri Jan 17 11:12:26 2020 +0200
+
+    main changed
+
+commit 04874fddf34b34c7de5d82ddb3d17256ccfcd0c8
+Author: shakarb <shakarbili@gmail.com>
+Date:   Fri Jan 17 09:25:04 2020 +0200
+
+    some fixes with generics
+
+commit 2be44532e40ca683f3f2b900bc1728045763d84c
+Author: shakarb <shakarbili@gmail.com>
+Date:   Fri Jan 17 02:19:36 2020 +0200
+
+    object adapter pattern was added. State, Point and Matrix classes were implemented.
+
+commit 9bfd86d04bf6a4304c9b61682c7cc838cf46bb29
+Author: batelpir <batelpirov1@gmail.com>
+Date:   Thu Jan 16 11:39:52 2020 +0200
+
+    name space added (the main not ready yet) .
+    fixes in client
+
+commit e42f632d8490d42fa80640ba8027a164fe58a487
+Author: batelpir <batelpirov1@gmail.com>
+Date:   Wed Jan 15 14:53:54 2020 +0200
+
+    add searcher and object adapter
+
+commit 80194c3e0209eca73f494dac7c0ce65ff74a6858
+Author: shakarb <shakarbili@gmail.com>
+Date:   Wed Jan 15 13:45:08 2020 +0200
+
+    Server and client code were added. Client solves problem of reversed string.
+
+commit 09d36c3bbda68fd3ad8a76593224e4bbc3af50b9
+Author: batelpir <batelpirov1@gmail.com>
+Date:   Mon Jan 13 23:06:03 2020 +0200
+
+    File cache manager is done but not tested yet.
+    more classes were added.
+
+commit e4616a7ce570c4c04003c9d5863e3d1d7e47a710
+Author: batelpir <batelpirov1@gmail.com>
+Date:   Sun Jan 12 17:36:22 2020 +0200
+
+    start server code, need to fix it.
+
+commit 016cb9ca779d4ce1114bd11817cd8965530ce283
+Author: shakarb <shakarbili@gmail.com>
+Date:   Sun Jan 12 10:08:18 2020 +0200
+
+    Initial commit
