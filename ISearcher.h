@@ -35,7 +35,7 @@ public:
       trace.push_back(searchable->getInitialState());
       return trace;
     }
-
+    virtual ISearcher<T> *deepCopy() = 0;
 };
 
 

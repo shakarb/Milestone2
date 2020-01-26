@@ -8,5 +8,6 @@
 class ClientHandler {
 public:
   virtual void handleClient(int client_socket) = 0;
+  virtual ClientHandler *deepCopy() = 0;
 };
 #endif //MILESTONE2__CLIENTHANDLER_H_

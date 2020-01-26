@@ -22,7 +22,7 @@ using namespace std;
 int main(int argc, char *argv[]) {
     int port = stoi(argv[1]);
     CacheManager<string, string> *cache = new FileCacheManager(5);
-    ISearcher<Point*> *algorithm = new BestFirstSearch<Point*>;
+    ISearcher<Point*> *algorithm = new AStar<Point*>;
     Solver<string, string> *solver = new SearchableSolver<string,string,Point*,MatrixSearchable>(algorithm);
     ClientHandler *clientHandler = new MyTestClientHandler<string,string>(cache, solver);
     server_side::Server *server = new ParallelServer();

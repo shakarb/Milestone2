@@ -49,6 +49,8 @@ public:
     }
 
     virtual vector<State<T>*> search(Searchable<T> *s) = 0;
+
+    virtual PriorityQueueSearcher<T> *deepCopy() = 0;
 };
 
 

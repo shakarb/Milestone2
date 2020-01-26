@@ -38,6 +38,9 @@ class BFS : public ISearcher<T>{
         }
         return solution;
     }
+    virtual ISearcher<T>* deepCopy() {
+        return new BFS();
+    }
 };
 
 #endif //MILESTONE2_BFS_H

@@ -40,7 +40,7 @@ int ParallelServer ::open(int port, ClientHandler *ch) {
         cout<<"Couldn't bind a socket"<<endl;
         return -2;
     }
-    if(listen(socketfd, 1) == -1) {
+    if(listen(socketfd, 10) == -1) {
         cout<<"Couldn't listen to socket"<<endl;
         return -3;
     } else{
@@ -55,15 +55,31 @@ int ParallelServer ::open(int port, ClientHandler *ch) {
     // define timout for socket level
     setsockopt(socketfd, SOL_SOCKET, SO_RCVTIMEO, (const char*)&timeout, sizeof(timeout));
     thread *openSever = new thread(&ParallelServer::getClients, this, address, socketfd, ch);
-
     openSever->join();
+    /*
+    while(!this->isStop) {
+        //accepting a client.
+        socklen_t addrlen = sizeof(address);
+        int client_socket = accept(socketfd, (struct sockaddr *) &address, &addrlen);
+        if(client_socket == -1) {
+            cout<<"Client hasn't connected for 2 minutes"<<endl;
+            this->stop();
+        } else {
+            cout<<"Client is connected"<<endl;
+            thread *handle = new thread(&ParallelServer::handleClient, this, ch, client_socket);
+            handle->detach();
+        }
+
+    }*/
 }
 
 /*
  * Handle every client in a different thread.
  */
 void ParallelServer::handleClient(ClientHandler *ch, int client_socket) {
-    ch->handleClient(client_socket);
+    ClientHandler *newCh = ch->deepCopy();
+    newCh->handleClient(client_socket);
+    //ch->handleClient(client_socket);
 }
 
 /*

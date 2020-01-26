@@ -54,6 +54,9 @@ class DFS: public ISearcher<T> {
     vector<State<T>*> empty_vector;
     return empty_vector;
   }
+    virtual ISearcher<T>* deepCopy() {
+        return new DFS();
+    }
 
 };
 

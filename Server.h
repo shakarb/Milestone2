@@ -22,8 +22,8 @@ namespace server_side {
         //int port = stoi(argv[1]);
 
         CacheManager<string, string> *cache = new FileCacheManager(5);
-        Solver<string, string> *solver = new StringReserver();
-        ClientHandler *clientHandler = new MyTestClientHandler<string,string>(cache, solver);
+        //Solver<string, string> *solver = new StringReserver();
+        //ClientHandler *clientHandler = new MyTestClientHandler<string,string>(cache, solver);
 
         //Server *server = new
         //server->open(5600, clientHandler);

@@ -16,7 +16,10 @@ private:
 public:
     State(T s) {
       this->state = s;
+      this->cost = 0;
+      this->path_cost = 0;
       this->distance_from_goal = 0;
+      this->came_from = NULL;
     }
     // work only in the cases that T is an address of something
     bool equals(State<T>* state_obj) {

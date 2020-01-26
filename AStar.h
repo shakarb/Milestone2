@@ -87,6 +87,9 @@ class AStar : public PriorityQueueSearcher<T> {
     vector<State<T>*> empty_vector;
     return empty_vector;
   }
+    virtual PriorityQueueSearcher<T>* deepCopy() {
+        return new AStar();
+    }
 };
 
 #endif //MILESTONE2__ASTAR_H_

@@ -10,6 +10,7 @@
 template <typename T>
 class BestFirstSearch : public PriorityQueueSearcher<T>{
     virtual vector<State<T>*> search(Searchable<T> *searchable) {
+        vector<State<T>*> solution;
         map<State<T>*, bool> visited;
         State<T> *init = searchable->getInitialState();
         init->setPathCost(init->getCost());
@@ -34,25 +35,26 @@ class BestFirstSearch : public PriorityQueueSearcher<T>{
                     s->setPathCost(s->getCost() + state->getPathCost());
                     this->open_list.push(s);
                 } else {
-                    if(s->getCost() != -1) {
-                        // if the new path is better than the current one update it
-                        if (s->getCost() + state->getPathCost() < s->getPathCost()) {
-                            s->setCameFrom(state);
-                            s->setPathCost(s->getCost() + state->getPathCost());
-                            if (!in_open_list) {
-                                this->open_list.push(s);
-                            } else {
-                                this->reorderPriorityQueue();
-
-                            }
+                    // if the new path is better than the current one update it
+                    if (s->getCost() + state->getPathCost() < s->getPathCost()) {
+                        s->setCameFrom(state);
+                        s->setPathCost(s->getCost() + state->getPathCost());
+                        if (!in_open_list) {
+                            this->open_list.push(s);
+                        } else {
+                            this->reorderPriorityQueue();
                         }
                     }
-
                 }
             }
         }
-        //return solution;
+        return solution;
     }
+
+    virtual PriorityQueueSearcher<T>* deepCopy() {
+        return new BestFirstSearch();
+    }
+
 };
 
 

@@ -25,5 +25,9 @@ class SearchableSolver : public Solver<P,S> {
         searchable->getInitialState();
         return searchable->getDirection(&trace);
     }
+
+    SearchableSolver<P,S,T,SE> *deepCopy() {
+        return new SearchableSolver<P,S,T,SE>(searcher->deepCopy());
+    }
 };
 #endif //MILESTONE2__OBJECTADAPTER_H_
