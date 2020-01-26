@@ -34,6 +34,5 @@ int main(int argc, char *argv[]) {
     //server_side::Server *server = new SerialServer();
     server->open(port, clientHandler);
 
-  //server_side::boot::Main().main(argc ,argv);
   return 0;
 };
